@@ -83,28 +83,32 @@ def changeFeeState(request, id):
 @allowed_users(allowed_roles=["staff"])
 def addStudent(request, gradeId):
     if request.is_ajax and request.method == 'POST':
-        data = json.loads(request.POST['body'])
-        alpha_list = list(string.ascii_lowercase)
-        with open("./feeFormat.json", "r") as file:
-            feeFormat = json.load(file)
-            file.close
         try:
-            name = data["name"].lower()
-            username = "".join(name.split())
-            password = ""
-            for i in range(0, 4):
-                password += random.choice(alpha_list)
-            password += data["admnNo"]
-            user = User.objects.create_user(
-                username=username, password=password)
-            student = Student.objects.create(user=user, password=password, admnNo=data['admnNo'], name=data['name'],
-                                             fathersName=data['fatherName'], mothersName=data['motherName'], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat))
-            grade = Grade.objects.get(id=gradeId)
-            grade.students.add(student)
-            grade.save()
-            return JsonResponse({"username": username, "password": password}, safe=True)
+            data = json.loads(request.POST['body'])
+            alpha_list = list(string.ascii_lowercase)
+            with open("./feeFormat.json", "r") as file:
+                feeFormat = json.load(file)
+                file.close
+            try:
+                name = data["name"].lower()
+                username = "".join(name.split())
+                password = ""
+                for i in range(0, 4):
+                    password += random.choice(alpha_list)
+                password += data["admnNo"]
+                user = User.objects.create_user(
+                    username=username, password=password)
+                student = Student.objects.create(user=user, password=password, admnNo=data['admnNo'], name=data['name'],
+                                                 fathersName=data['fatherName'], mothersName=data['motherName'], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat))
+                grade = Grade.objects.get(id=gradeId)
+                grade.students.add(student)
+                grade.save()
+                return JsonResponse({"username": username, "password": password}, safe=True)
+            except Exception as e:
+                raise Exception(
+                    'Something went wrong please try again later', e)
         except Exception as e:
-            raise Exception('Something went wrong please try again later', e)
+            raise Exception(e)
     return JsonResponse(True, safe=False)
 
 
