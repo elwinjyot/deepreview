@@ -46,7 +46,7 @@ class Grade(models.Model):
     className = models.CharField(
         verbose_name='Class', max_length=5, null=False, blank=True, unique=True)
 
-    students = models.ManyToManyField(Student)
+    students = models.ManyToManyField(Student, blank=True, null=True)
     sub_teachers = models.ManyToManyField(Teacher, related_name='sub')
     class_teacher = models.OneToOneField(
         Teacher, related_name='main', on_delete=models.DO_NOTHING, blank=True, null=True)
