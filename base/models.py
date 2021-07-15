@@ -19,7 +19,7 @@ class Student(models.Model):
     dateOfBirth = models.CharField(
         max_length=10, null=False, default="NIL", blank=True)
     aadharNumber = models.IntegerField(
-        verbose_name='Aadhar Number', default=000000000000)
+        verbose_name='Aadhar Number', default=000000000000, null=False, blank=True)
     gender = models.CharField(
         max_length=10, choices=GENDER, null=False, blank=True)
     address = models.CharField(max_length=200, null=False, blank=True)
@@ -46,7 +46,7 @@ class Grade(models.Model):
     className = models.CharField(
         verbose_name='Class', max_length=5, null=False, blank=True, unique=True)
 
-    students = models.ManyToManyField(Student, blank=True, null=True)
+    students = models.ManyToManyField(Student, blank=True)
     sub_teachers = models.ManyToManyField(Teacher, related_name='sub')
     class_teacher = models.OneToOneField(
         Teacher, related_name='main', on_delete=models.DO_NOTHING, blank=True, null=True)
