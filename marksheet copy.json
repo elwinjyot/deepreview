@@ -1,0 +1,166 @@
+{
+  "7A": {
+    "4814": [
+      {
+        "INDEX": 0,
+        "HEAD": "PT1",
+        "FORMAT": "UT",
+        "RELEASED": true,
+        "BODY": [
+          {
+            "SUBJECT": "English",
+            "SCORE": 12
+          },
+          {
+            "SUBJECT": "Hindi",
+            "SCORE": 18
+          },
+          {
+            "SUBJECT": "Mathematics",
+            "SCORE": 12
+          },
+          {
+            "SUBJECT": "Sanskrit",
+            "SCORE": 2
+          }
+        ]
+      },
+      {
+        "INDEX": 1,
+        "HEAD": "PT2",
+        "FORMAT": "MT",
+        "RELEASED": true,
+        "BODY": [
+          {
+            "SUBJECT": "English",
+            "SCORE": 80,
+            "INTERNAL": [
+              {
+                "SET_NAME": "Written",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Portfolio",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Subject Enrichment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Continuous Assessment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "PT-1",
+                "MARKS": 5
+              }
+            ]
+          },
+          {
+            "SUBJECT": "Hindi",
+            "SCORE": 80,
+            "INTERNAL": [
+              {
+                "SET_NAME": "Written",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Portfolio",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Subject Enrichment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Continuous Assessment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "PT-1",
+                "MARKS": 5
+              }
+            ]
+          },
+          {
+            "SUBJECT": "Sanskrit",
+            "SCORE": 80,
+            "INTERNAL": [
+              {
+                "SET_NAME": "Written",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Portfolio",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Subject Enrichment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Continuous Assessment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "PT-1",
+                "MARKS": 5
+              }
+            ]
+          },
+          {
+            "SUBJECT": "Maths",
+            "SCORE": 80,
+            "INTERNAL": [
+              {
+                "SET_NAME": "Written",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Portfolio",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Subject Enrichment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "Continuous Assessment",
+                "MARKS": 5
+              },
+              {
+                "SET_NAME": "PT-1",
+                "MARKS": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "INDEX": "2",
+        "HEAD": "PT3",
+        "FORMAT": "UT",
+        "RELEASED": true,
+        "BODY": [
+          {
+            "SUBJECT": "English",
+            "SCORE": "14"
+          },
+          {
+            "SUBJECT": "Sanskrit",
+            "SCORE": "13"
+          },
+          {
+            "SUBJECT": "Hindi",
+            "SCORE": "16"
+          },
+          {
+            "SUBJECT": "Mathematics",
+            "SCORE": "13"
+          }
+        ]
+      }
+    ]
+  }
+}

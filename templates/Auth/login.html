@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'Sass/main.css' %}" />
+    <title>Login</title>
+  </head>
+  <body id="login-body">
+    <form id="login-form">
+      {% csrf_token %}
+      <div class="space-fill-icon">
+        <img src="{% static 'Images/empty-scuba-ic.png' %}" alt="" />
+      </div>
+      <div class="input-group">
+        <input type="text" placeholder="Username" name="username" autocomplete="off" />
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" name="password" />
+      </div>
+      <div class="input-group">
+        <button type="submit" class="loginBtn">Login</button>
+      </div>
+      <div class="input-group">
+        <button type="button" class="craccbtn">Create Account</button>
+      </div>
+      <div class="tip-wrap">
+        <p>*Quick Tip*</p>
+        <p>{{tip}}</p>
+      </div>
+    </form>
+    <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
+  </body>
+</html>

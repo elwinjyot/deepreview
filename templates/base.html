@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'Sass/main.css' %}" />
+    <title>Records</title>
+  </head>
+  <body>
+    
+    <header id="site-navigation">
+      {% if not request.user.is_staff %}
+      <ul style="justify-content: flex-end;">
+      {% else %}
+      <ul class="ul-for-staff">
+      {% endif %}
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        <li id="search-bar"><input type="text" placeholder="Search" /></li>
+        {% endif %} {% if request.user.is_authenticated %}
+        <li>
+          <a href="{% url 'Logout' %}"><button>Logout</button></a>
+        </li>
+        {% else %}
+        <li><button>Login</button></li>
+        {% endif %}
+      </ul>
+    </header>
+    <main>{% block main %} {% endblock %}</main>
+  </body>
+  <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
+  {% block scripts %}
+  {% endblock %}
+</html>

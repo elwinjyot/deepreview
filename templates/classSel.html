@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<section id="selectClass-container">
+  {% for grade in grades %}
+  <a href="{% url 'Home' grade.id %}">
+    <div class="class-card">
+      <img src="{% static 'Images/placeholder-ic.png' %}" alt="" />
+      <h2>{{grade.className}}</h2>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}

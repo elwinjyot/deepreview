@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<section id="confirmation-box">
+  <p>Are you sure you want to delete the student!</p>
+  <div class="btns"><button class="cancel-delete">Cancel</button><button class="delete-confirm">Delete</button></div>
+</section>
+<section id="addStudent-container">
+  <div id="addStud-wrapper">
+    <img class="place-ic" src="{% static 'Images/addStud-ic.png' %}" alt="" />
+    <form id="addStudentForm" data-gradeId="{{grade}}">
+      {% csrf_token %}
+      <div class="input-group">
+        <input autocomplete="off" type="number" min="0" name="admnNo" placeholder="Admission Number" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="name" placeholder="Full Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="father" placeholder="Father's Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="dob" placeholder="Date of Birth" />
+      </div>
+      <div class="input-group gender-grp">
+        <p>Gender</p>
+        <div class="select-option-group">
+          <div class="drop-btn-div">
+            <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
+          </div>
+          <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="number" name="adNo" min="0" placeholder="Aadhar Number" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="address" placeholder="Address" />
+      </div>
+      <div class="input-group remark-inp">
+        <textarea name="remarks" placeholder="Remarks" cols="30" maxlength="300" rows="5"></textarea>
+      </div>
+      <div class="input-group">
+        <button type="submit" id="create-student-btn">Create Student</button>
+      </div>
+      <div class="input-group cancel-grp">
+        <button type="button" id="close-addStudent-panel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</section>
+<section id="class-details">
+  <div class="students-list">
+    <div class="head-stock">
+      <h2>Students List</h2>
+      <button id="addStudent-panel-open-btn"><img src="{% static 'Images/plus-ic.png' %}" alt="" /> Add Student</button>
+    </div>
+    {% for student in students %}
+    <div class="student">
+      <div class="basic-info-wrap">
+        <a href="{% url 'Detail' grade student.admnNo %}">
+          <h2>{{student.admnNo}} | {{student.name}}</h2>
+        </a>
+        <div class="control-btns">
+          <button class="delete-stud" data-admnNo="{{student.admnNo}}"><img src="{% static 'Images/delete-ic.png' %}" alt="" /></button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="class-teacher-details">
+    <div class="teacher-details">
+      <h2>{{admin.user.first_name}} {{admin.user.last_name}}</h2>
+      <p>{{admin.assignedClass}} | {{strength}}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

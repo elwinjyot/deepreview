@@ -1,0 +1,114 @@
+// Color Variables
+$licorice: #323232;
+$blue-gem: #fc6e20;
+$primary-shade-1a: #da5812;
+$secondary-shade-1: #f1f1f1;
+$white-smoke: #f3f3f3;
+$text-color-light: white;
+$text-color-dark: #333;
+$shamrock: #25d5a6;
+// Color Variables
+
+// Fonts
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Light.ttf);
+  font-weight: 100;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-SemiBold.ttf);
+  font-weight: 200;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Bold.ttf);
+  font-weight: 300;
+}
+// Fonts
+
+// Mixins
+@mixin OpenSans($weight) {
+  font-family: OpenSans;
+  font-weight: $weight;
+}
+
+@mixin button-primary($padding) {
+  padding: $padding;
+  background-color: white;
+  color: black;
+  @include OpenSans(100);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+
+  &:active {
+    background-color: $secondary-shade-1;
+  }
+}
+@mixin button-secondary($padding) {
+  padding: $padding;
+  background-color: $blue-gem;
+  color: white;
+  @include OpenSans(100);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    background-color: $primary-shade-1a;
+  }
+}
+
+@mixin button-hollow($padding) {
+  padding: $padding;
+  background-color: transparent;
+  color: white;
+  @include OpenSans(100);
+  border: 3px solid $blue-gem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    background-color: #da5812da !important;
+  }
+}
+
+@mixin input-hollow($padding) {
+  padding: $padding;
+  background-color: white;
+  border: none;
+  color: black;
+  border-radius: 6px;
+  font-size: 1.2em;
+  transition: box-shadow 0.3s ease-out 0s;
+  @include OpenSans(200);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 4px $primary-shade-1a;
+  }
+}
+@mixin input-dark() {
+  padding: 14px 12px;
+  width: 100%;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 3px solid $blue-gem;
+  background-color: $white-smoke;
+  @include OpenSans(100);
+
+  &:focus {
+    outline: none;
+  }
+}
+// Mixins

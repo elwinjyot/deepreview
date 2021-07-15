@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+
+<section id="student-details-container">
+  <div id="student-wrapper">
+    <section id="student-info">
+      <h2>{{student.admnNo}} | {{student.name}}</h2>
+      <div class="all-details">
+        <section id="part-1">
+          <p>Father's Name: {{student.fathersName}}</p>
+          <p>Mother's Name: {{student.mothersName}}</p>
+          <p>DOB: {{student.dateOfBirth}}</p>
+        </section>
+        <section id="part-2">
+          <p>Gender: {{student.gender}}</p>
+          <p>Aadhar Number: {{student.aadharNumber}}</p>
+          <p>Address: {{student.address}}</p>
+        </section>
+        <section id="part-3">
+          <p style="margin-bottom: 6px">Remarks:</p>
+          <p>{{student.remarks}}</p>
+        </section>
+      </div>
+    </section>
+    <section id="marksheet">
+      {% if marksheet is None %}
+      <div class="empty-message">
+        <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="" />
+        <h3>Marksheet not prepared!</h3>
+      </div>
+      {% else %} {% for set in marksheet %} {% if set.FORMAT == "UT" %}
+      <div class="ut-set set">
+        <h2>{{set.HEAD}}</h2>
+        {% if set.RELEASED %}
+        <div class="subject-mark-wrapper ut">
+          {% for subject in set.BODY %}
+          <div class="subject-mark-display">
+            <p class="sub-heading">{{subject.SUBJECT}}</p>
+            <span>{{subject.SCORE}}/20</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <h2 class="not-released">Yet to be released!</h2>
+        {% endif %}
+      </div>
+      {% else %}
+      <div class="mt-set set">
+        <h2>{{set.HEAD}}</h2>
+        {% if set.RELEASED %}
+        <div class="subject-mark-wrapper mt">
+          {% for subject in set.BODY %}
+          <div class="subject-mark-display">
+            <p class="sub-heading">{{subject.SUBJECT}}</p>
+            <span>{{subject.SCORE}}/100</span>
+            <div class="internal-mark-display">
+              {% for inter in subject.INTERNAL %}
+              <div class="mark-set">
+                <div class="mark-set__wrapper">
+                  {% if inter.SET_NAME == "Written" %}
+                  <p>{{inter.SET_NAME}}</p>
+                  <p>{{inter.MARKS}}/80</p>
+                  {% else %}
+                  <p>{{inter.SET_NAME}}</p>
+                  <p>{{inter.MARKS}}/5</p>
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <h2 class="not-released">Yet to be released!</h2>
+        {% endif %}
+      </div>
+      {% endif %} {% endfor %} {% endif %}
+    </section>
+  </div>
+  <section id="fee-info">
+    <div class="fee-info-wrapper">
+      <h2>
+        Fee Status
+        <div class="indicator">
+          <div class="paid">
+            <span></span>
+            <p>Paid</p>
+          </div>
+          <div class="unpaid">
+            <span></span>
+            <p>Unpaid</p>
+          </div>
+        </div>
+      </h2>
+      <ul>
+        {% csrf_token %} {% for feeItem in feeInfo %} {% if feeItem.PAID %}
+        <li style="border-bottom-color: #25d5a6" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
+        {% else %}
+        <li style="border-bottom-color: #d52525" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+  </section>
+</section>
+{% endblock %}
