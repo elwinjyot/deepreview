@@ -185,7 +185,7 @@ def deleteStud(request):
         queriedData = data[className]
         queriedData.pop(admnNo)
 
-        with open("./marksheet.json") as file:
+        with open("./marksheet.json", "w") as file:
             json.dump(data, file, indent=2)
             file.close()
     return JsonResponse(True, safe=False)
