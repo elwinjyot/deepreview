@@ -107,7 +107,11 @@
           {% for subject in set.BODY %}
           <div class="subject-mark-display">
             <p class="sub-heading">{{subject.SUBJECT}}</p>
-            <span>{{subject.SCORE}}/20</span>
+            {% if subject.SUBJECT in sub_list %}
+            <span>{{subject.SCORE}}</span>
+            {% else %}
+            <span>{{subject.SCORE}}/40</span>
+            {% endif %}
           </div>
           {% endfor %}
         </div>

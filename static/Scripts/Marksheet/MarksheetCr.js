@@ -100,14 +100,14 @@ function addSubject() {
             <option value="Mathematics">Mathematics</option>
             <option value="Computer">Computer</option>
             <option value="G.K">G.K</option>
-            <option value="Value Education">Value Education</option>
+            <option value="V.Ed">Value Education</option>
             <option value="Dance">Dance</option>
             <option value="Music">Music</option>
             <option value="HPE">HPE</option>
           </select>
         </div>
       </div>
-      <input type="number" name="marks" autocomplete="off" placeholder="/20">
+      <input type="text" name="marks" required autocomplete="off" placeholder="/40">
       </section>
       `);
 }

@@ -14,7 +14,7 @@ from .decorators import allowed_users
 @allowed_users(allowed_roles=["staff"])
 def home(request, gradeId):
     grade = Grade.objects.get(id=gradeId)
-    students = grade.students.all()
+    students = grade.students.all().order_by('name')
 
     context = {
         'grade': gradeId,
@@ -46,7 +46,8 @@ def studentDetailView(request, gradeId, id):
         'student': student,
         'marksheet': studentMarksheet,
         'feeInfo': feeInfo,
-        'grade': gradeId
+        'grade': gradeId,
+        'sub_list': ["G.K", "V.Ed", "Dance", "Music", "HPE", "Computer"]
     }
     return render(request=request, template_name='detail.html', context=context)
 
