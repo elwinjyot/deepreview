@@ -238,6 +238,7 @@ $(".delete-confirm").click(function () {
     method: "POST",
     url: "/teach/deleteStud/",
     data: {
+      grade: $(this).attr("data-grade"),
       admnNo: studDeleteAdmnNo,
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },

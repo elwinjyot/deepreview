@@ -311,6 +311,10 @@ body {
         background-color: white;
         padding: 12px 14px;
 
+        #empty-msg {
+          @include OpenSans(200);
+          color: #242424a2;
+        }
         .head-stock {
           display: flex;
           justify-content: space-between;

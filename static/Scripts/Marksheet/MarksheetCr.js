@@ -107,7 +107,7 @@ function addSubject() {
           </select>
         </div>
       </div>
-      <input type="text" name="marks" autocomplete="off" placeholder="Marks">
+      <input type="number" name="marks" autocomplete="off" placeholder="/20">
       </section>
       `);
 }

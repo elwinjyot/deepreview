@@ -573,6 +573,12 @@ body main #class-details .students-list {
   padding: 12px 14px;
 }
 
+body main #class-details .students-list #empty-msg {
+  font-family: OpenSans;
+  font-weight: 200;
+  color: #242424a2;
+}
+
 body main #class-details .students-list .head-stock {
   display: -webkit-box;
   display: -ms-flexbox;

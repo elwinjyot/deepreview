@@ -12,7 +12,7 @@
 {% endblock %} {% block main %}
 <section id="confirmation-box">
   <p>Are you sure you want to delete the student!</p>
-  <div class="btns"><button class="cancel-delete">Cancel</button><button class="delete-confirm">Delete</button></div>
+  <div class="btns"><button class="cancel-delete">Cancel</button><button class="delete-confirm" data-grade="{{className}}">Delete</button></div>
 </section>
 <section id="addStudent-container">
   <div id="addStud-wrapper">
@@ -26,7 +26,7 @@
         <input autocomplete="off" required type="text" name="name" placeholder="Full Name" />
       </div>
       <div class="input-group">
-        <input autocomplete="off" type="text" name="father" placeholder="Father's Name" />
+        <input autocomplete="off" type="text" name="father" placeholder="Father's Name/Guardian's Name" />
       </div>
       <div class="input-group">
         <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" />
@@ -70,7 +70,9 @@
       <h2>Students List</h2>
       <button id="addStudent-panel-open-btn"><img src="{% static 'Images/plus-ic.png' %}" alt="" /> Add Student</button>
     </div>
-    {% for student in students %}
+    {% if students|length == 0 %}
+    <h2 id="empty-msg">Oh, so empty</h2>
+    {% else %} {% for student in students %}
     <div class="student" data-admnNo="{{student.admnNo}}" data-name="{{student.name}}">
       <div class="basic-info-wrap">
         <a href="{% url 'Detail' grade student.admnNo %}">
@@ -81,7 +83,7 @@
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% endif %}
   </div>
   <div class="class-teacher-details">
     <div class="teacher-details">

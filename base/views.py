@@ -18,6 +18,7 @@ def home(request, gradeId):
 
     context = {
         'grade': gradeId,
+        'className': grade.className,
         'students': students,
         'strength': len(students),
         'admin': grade.class_teacher
@@ -92,7 +93,9 @@ def addStudent(request, gradeId):
                 file.close
             try:
                 name = data["name"].lower()
-                username = "".join(name.split())
+                username = "".join(name.split()) + \
+                    str(random.choice(range(1, 10))) + \
+                    str(random.choice(range(1, 10)))
                 password = ""
                 for i in range(0, 4):
                     password += random.choice(alpha_list)
@@ -175,6 +178,16 @@ def deleteStud(request):
             user.delete()
         except Exception as e:
             raise Exception("Something went wrong", e)
+        with open("./marksheet.json", "r") as file:
+            data = json.load(file)
+            file.close()
+        className = request.POST.get('grade')
+        queriedData = data[className]
+        queriedData.pop(admnNo)
+
+        with open("./marksheet.json") as file:
+            json.dump(data, file, indent=2)
+            file.close()
     return JsonResponse(True, safe=False)
 # Errors
 
