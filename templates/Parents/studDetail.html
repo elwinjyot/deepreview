@@ -1,4 +1,10 @@
-{% extends 'base.html' %} {% load static %} {% block main %}
+{% extends 'base.html' %} {% load static %} {% block ul %}
+<ul class="ul-for-staff" style="flex-direction: row !important; justify-content: flex-end">
+  <li>
+    <a href="{% url 'Logout' %}"><button>Logout</button></a>
+  </li>
+</ul>
+{% endblock %} {% block main %}
 
 <section id="student-details-container">
   <div id="student-wrapper">

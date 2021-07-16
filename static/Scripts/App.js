@@ -86,7 +86,7 @@ $("#login-form").submit(function (event) {
       }, 1000);
     },
     error: () => {
-      $(".loginBtn").html(`<p style="margin-right: 6px;">Oops, Somethings wrong</p><img src="../../static/Images/error-ic.png" style="height: auto; max-width: 28px;" /> `);
+      $(".loginBtn").html(`<p style="margin-right: 6px;">Password or username wrong!</p><img src="../../static/Images/error-ic.png" style="height: auto; max-width: 28px;" /> `);
       setTimeout(() => {
         $(".loginBtn").text(`Login`);
       }, 2000);
