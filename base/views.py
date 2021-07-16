@@ -183,7 +183,10 @@ def deleteStud(request):
             file.close()
         className = request.POST.get('grade')
         queriedData = data[className]
-        queriedData.pop(admnNo)
+        try:
+            queriedData.pop(admnNo)
+        except:
+            pass
 
         with open("./marksheet.json", "w") as file:
             json.dump(data, file, indent=2)
