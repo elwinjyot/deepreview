@@ -139,7 +139,7 @@
 #confirmation-box {
   position: fixed;
   z-index: 100;
-  bottom: -20%;
+  bottom: -40%;
   padding: 2rem 3rem;
   background-color: #323232;
   -webkit-box-shadow: 0px 0px 27px -10px rgba(21, 21, 21, 0.6);
@@ -267,9 +267,6 @@ body #site-navigation ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 12px 14px;
   border-radius: 6px;
   background-color: #fc6e20;
@@ -284,9 +281,12 @@ body #site-navigation ul #search-bar {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  width: 30%;
+  min-width: 20%;
 }
 
 body #site-navigation ul #search-bar input {
+  width: 100%;
   padding: 8px 14px;
   background-color: white;
   border: none;
@@ -305,6 +305,16 @@ body #site-navigation ul #search-bar input:focus {
   outline: none;
   -webkit-box-shadow: 0px 0px 0px 4px #da5812;
           box-shadow: 0px 0px 0px 4px #da5812;
+}
+
+body #site-navigation ul .other-btns {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body #site-navigation ul li button {
@@ -376,10 +386,11 @@ body main #addStudent-container #addStud-wrapper {
 body main #addStudent-container #addStud-wrapper .place-ic {
   height: auto;
   max-width: 62px;
-  margin: 2rem 0rem;
+  margin: 2rem 0rem 1rem 0rem;
 }
 
 body main #addStudent-container #addStud-wrapper #addStudentForm {
+  padding: 2.5rem 0rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1472,10 +1483,10 @@ body #student-details-container #fee-info ul li {
     width: 90%;
   }
   body #site-navigation .ul-for-staff {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -1637,5 +1648,26 @@ body #student-details-container #fee-info ul li {
     width: 70%;
     font-size: 18px;
     text-align: center;
+  }
+}
+
+@media (max-height: 632px) {
+  #confirmation-box {
+    bottom: -100%;
+  }
+}
+
+@media (max-width: 900px) {
+  #site-navigation .ul-for-staff {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #site-navigation .ul-for-staff .other-btns {
+    width: 20% !important;
   }
 }

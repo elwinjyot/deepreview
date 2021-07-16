@@ -1,4 +1,15 @@
-{% extends 'base.html' %} {% load static %} {% block main %}
+{% extends 'base.html' %} {% load static %} {% block ul %}
+<ul class="ul-for-staff">
+  <li id="search-bar"><input type="text" placeholder="Search" /></li>
+  {% if request.user.is_authenticated %}
+  <li>
+    <a href="{% url 'Logout' %}"><button>Logout</button></a>
+  </li>
+  {% else %}
+  <li><button>Login</button></li>
+  {% endif %}
+</ul>
+{% endblock %} {% block main %}
 <section id="confirmation-box">
   <p>Are you sure you want to delete the student!</p>
   <div class="btns"><button class="cancel-delete">Cancel</button><button class="delete-confirm">Delete</button></div>
@@ -9,10 +20,10 @@
     <form id="addStudentForm" data-gradeId="{{grade}}">
       {% csrf_token %}
       <div class="input-group">
-        <input autocomplete="off" type="number" min="0" name="admnNo" placeholder="Admission Number" />
+        <input autocomplete="off" required type="number" min="0" name="admnNo" placeholder="Admission Number" />
       </div>
       <div class="input-group">
-        <input autocomplete="off" type="text" name="name" placeholder="Full Name" />
+        <input autocomplete="off" required type="text" name="name" placeholder="Full Name" />
       </div>
       <div class="input-group">
         <input autocomplete="off" type="text" name="father" placeholder="Father's Name" />
@@ -60,7 +71,7 @@
       <button id="addStudent-panel-open-btn"><img src="{% static 'Images/plus-ic.png' %}" alt="" /> Add Student</button>
     </div>
     {% for student in students %}
-    <div class="student">
+    <div class="student" data-admnNo="{{student.admnNo}}" data-name="{{student.name}}">
       <div class="basic-info-wrap">
         <a href="{% url 'Detail' grade student.admnNo %}">
           <h2>{{student.admnNo}} | {{student.name}}</h2>

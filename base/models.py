@@ -18,8 +18,8 @@ class Student(models.Model):
     mothersName = models.CharField(max_length=100, null=False, blank=False)
     dateOfBirth = models.CharField(
         max_length=10, null=False, default="NIL", blank=True)
-    aadharNumber = models.IntegerField(
-        verbose_name='Aadhar Number', default=000000000000, null=False, blank=True)
+    aadharNumber = models.CharField(max_length=12,
+                                    verbose_name='Aadhar Number', default="", null=False, blank=True)
     gender = models.CharField(
         max_length=10, choices=GENDER, null=False, blank=True)
     address = models.CharField(max_length=200, null=False, blank=True)

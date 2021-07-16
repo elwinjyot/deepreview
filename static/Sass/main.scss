@@ -82,7 +82,7 @@
 #confirmation-box {
   position: fixed;
   z-index: 100;
-  bottom: -20%;
+  bottom: -40%;
   padding: 2rem 3rem;
   background-color: $licorice;
   box-shadow: 0px 0px 27px -10px rgba(21, 21, 21, 0.6);
@@ -149,7 +149,6 @@ body {
       width: 70%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 12px 14px;
       border-radius: 6px;
       background-color: $blue-gem;
@@ -159,10 +158,18 @@ body {
         display: flex;
         align-items: center;
         position: relative;
+        width: 30%;
+        min-width: 20%;
 
         input {
+          width: 100%;
           @include input-hollow(8px 14px);
         }
+      }
+      .other-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
       }
       li {
         button {
@@ -204,9 +211,10 @@ body {
         .place-ic {
           height: auto;
           max-width: 62px;
-          margin: 2rem 0rem;
+          margin: 2rem 0rem 1rem 0rem;
         }
         #addStudentForm {
+          padding: 2.5rem 0rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -842,7 +850,7 @@ $breakpoint-mobile: 414px;
         width: 90%;
       }
       .ul-for-staff {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: flex-start;
         #search-bar {
           width: 100%;
@@ -1032,6 +1040,25 @@ $breakpoint-mobile: 414px;
       width: 70%;
       font-size: 18px;
       text-align: center;
+    }
+  }
+}
+
+@media (max-height: 632px) {
+  #confirmation-box {
+    bottom: -100%;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  #site-navigation {
+    .ul-for-staff {
+      flex-direction: row !important;
+      justify-content: space-between;
+
+      .other-btns {
+        width: 20% !important;
+      }
     }
   }
 }

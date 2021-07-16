@@ -6,33 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'Sass/main.css' %}" />
-    <link rel="icon" href="{% static 'Images/favicon.png'%}" type="image/x-icon">
+    <link rel="icon" href="{% static 'Images/favicon.png'%}" type="image/x-icon" />
     <title>DeepReview</title>
   </head>
   <body>
-    
-    <header id="site-navigation">
-      {% if not request.user.is_staff %}
-      <ul style="justify-content: flex-end;">
-      {% else %}
-      <ul class="ul-for-staff">
-      {% endif %}
-        {% if request.user.is_authenticated and request.user.is_staff %}
-        <li id="search-bar"><input type="text" placeholder="Search" /></li>
-        {% endif %} {% if request.user.is_authenticated %}
-        <li>
-          <a href="{% url 'Logout' %}"><button>Logout</button></a>
-        </li>
-        {% else %}
-        <li><button>Login</button></li>
-        {% endif %}
-      </ul>
-    </header>
+    <header id="site-navigation">{% block ul %} {% endblock %}</header>
     <main>{% block main %} {% endblock %}</main>
   </body>
   <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
   <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
   <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
-  {% block scripts %}
-  {% endblock %}
+  {% block scripts %} {% endblock %}
 </html>

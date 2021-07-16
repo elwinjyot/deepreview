@@ -45,6 +45,7 @@ def studentDetailView(request, gradeId, id):
         'student': student,
         'marksheet': studentMarksheet,
         'feeInfo': feeInfo,
+        'grade': gradeId
     }
     return render(request=request, template_name='detail.html', context=context)
 

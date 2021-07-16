@@ -1,4 +1,18 @@
-{% extends 'base.html' %} {% load static %} {% block main %}
+{% extends 'base.html' %} {% load static %}
+{% block ul %}
+<ul class="ul-for-staff" style="flex-direction: row !important;">
+  <li><a href="{% url 'Home' grade %}"><button>Back</button></a></li>
+  {% if request.user.is_authenticated %}
+  <li>
+    <a href="{% url 'Logout' %}"><button>Logout</button></a>
+  </li>
+  {% else %}
+  <li><button>Login</button></li>
+  {% endif %}
+</ul>
+{% endblock %}
+
+{% block main %}
 <section id="create-marksheet-container">
   <section id="create-marksheet-wrapper">
     <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="">
