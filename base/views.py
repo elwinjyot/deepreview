@@ -33,14 +33,8 @@ def studentDetailView(request, gradeId, id):
     className = grade.className
     feeInfo = json.loads(student.feeStatus)
     # Get students Marksheet
-    with open("./marksheet.json", 'r') as file:
-        data = json.load(file)
-        try:
-            studentMarksheet = data[className][id]
-        except:
-            studentMarksheet = None
-        file.close()
-
+    studentMarksheet = json.loads(student.marksheet)
+    print(studentMarksheet)
     context = {
         'class': className,
         'student': student,
@@ -104,7 +98,7 @@ def addStudent(request, gradeId):
                 user = User.objects.create_user(
                     username=username, password=password)
                 student = Student.objects.create(user=user, password=password, admnNo=data['admnNo'], name=data['name'],
-                                                 fathersName=data['fatherName'], mothersName=data['motherName'], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat))
+                                                 fathersName=data['fatherName'], mothersName=data['motherName'], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat), marksheet="[]")
                 grade = Grade.objects.get(id=gradeId)
                 grade.students.add(student)
                 grade.save()
@@ -120,52 +114,38 @@ def addStudent(request, gradeId):
 def toggleRelease(request):
     if request.is_ajax and request.method == 'POST':
         state = json.loads(request.POST["state"])
-        index = int(request.POST["index"])
-        grade = request.POST["grade"]
+        index = request.POST["index"]
         admnNo = request.POST["admnNo"]
-        with open("./marksheet.json", "r") as file:
-            data = json.load(file)
-            file.close()
+        student = Student.objects.get(admnNo=admnNo)
+        marksheet = json.loads(student.marksheet)
+        for i in marksheet:
+            if i["INDEX"] == index:
+                i["RELEASED"] = state
 
-        data[grade][admnNo][index]["RELEASED"] = state
-
-        with open("./marksheet.json", "w") as file:
-            json.dump(data, file, indent=2)
-            file.close()
+        student.marksheet = json.dumps(marksheet)
+        student.save()
 
     return JsonResponse(True, safe=False)
 
 
 def addMarksheet(request):
     if request.is_ajax and request.method == 'POST':
-        with open("./marksheet.json", "r") as file:
-            data = json.load(file)
-            file.close()
-        grade = request.POST.get('grade')
         admnNo = request.POST.get('admnNo')
+        student = Student.objects.get(admnNo=int(admnNo))
         subject = json.loads(request.POST.get('subject'))
         index = request.POST.get('index')
         head = request.POST.get('head')
         testFormat = request.POST.get('format')
-        try:
-            test_list = data[grade][admnNo]
-        except KeyError:
-            data[grade][admnNo] = []
-        finally:
-            listStruct = data[grade][admnNo]
-            listStruct.append({
-                "INDEX": index,
-                "HEAD": head,
-                "FORMAT": testFormat,
-                "RELEASED": False,
-                "BODY": subject
-            })
-        try:
-            with open("./marksheet.json", "w") as file:
-                json.dump(data, file, indent=2)
-                file.close()
-        except:
-            raise Exception("Oopsie")
+        marksheetData = json.loads(student.marksheet)
+        marksheetData.append({
+            "INDEX": index,
+            "HEAD": head,
+            "FORMAT": testFormat,
+            "RELEASED": False,
+            "BODY": subject
+        })
+        student.marksheet = json.dumps(marksheetData)
+        student.save()
 
     return JsonResponse(True, safe=False)
 
@@ -179,20 +159,21 @@ def deleteStud(request):
             user.delete()
         except Exception as e:
             raise Exception("Something went wrong", e)
-        with open("./marksheet.json", "r") as file:
-            data = json.load(file)
-            file.close()
-        className = request.POST.get('grade')
-        queriedData = data[className]
-        try:
-            queriedData.pop(admnNo)
-        except:
-            pass
 
-        with open("./marksheet.json", "w") as file:
-            json.dump(data, file, indent=2)
-            file.close()
     return JsonResponse(True, safe=False)
+
+
+def deleteMarksheet(request):
+    if request.is_ajax and request.method == 'POST':
+        student = Student.objects.get(admnNo=request.POST.get('admnNo'))
+        marksheet = json.loads(student.marksheet)
+        for i in marksheet:
+            if i["INDEX"] == request.POST.get('index'):
+                marksheet.remove(i)
+        student.marksheet = json.dumps(marksheet)
+        student.save()
+        return JsonResponse(True, safe=False)
+
 # Errors
 
 

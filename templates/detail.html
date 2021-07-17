@@ -42,6 +42,7 @@
           </select>
         </div>
       </div>
+      <div class="input-group addSubject"></div>
       <div class="format-holder">
         <h2>Select a format to load form</h2>
       </div>
@@ -78,7 +79,7 @@
       </div>
     </section>
     <section id="marksheet">
-      {% if marksheet is None %}
+      {% if marksheet|length == 0 %}
       <div class="empty-message">
         <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="" />
         <h3>Marksheet not prepared!</h3>
@@ -93,13 +94,16 @@
       <div class="ut-set set">
         <div class="set-head">
           <h2>{{set.HEAD}}</h2>
-          <div class="toggle-container">
-            {% if set.RELEASED %}
-            <div class="toggle-wrapper active-toggle" data-state="on" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
-            {% else %}
-            <div class="toggle-wrapper toggle-wrap{{set.INDEX}}" data-state="off" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
-            {% endif %}
-              <div class="toggle-globe toggle{{set.INDEX}}"></div>
+          <div class="controls">
+            <button class="delete-marksheet" data-index="{{set.INDEX}}" data-admnNo="{{student.admnNo}}"><img src="{% static 'Images/delete-ic.png' %}" alt=""></button>
+            <div class="toggle-container">
+              {% if set.RELEASED %}
+              <div class="toggle-wrapper active-toggle" data-state="on" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
+              {% else %}
+              <div class="toggle-wrapper toggle-wrap{{set.INDEX}}" data-state="off" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
+              {% endif %}
+                <div class="toggle-globe toggle{{set.INDEX}}"></div>
+              </div>
             </div>
           </div>
         </div>

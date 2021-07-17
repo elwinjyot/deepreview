@@ -261,3 +261,24 @@ $(".delete-confirm").click(function () {
     },
   });
 });
+
+// Delete Marksheet
+$(".delete-marksheet").click(function () {
+  let index = $(this).attr("data-index");
+  let admnNo = $(this).attr("data-admnNo");
+  $.ajax({
+    method: "POST",
+    url: "/teach/deleteMarksheet/",
+    data: {
+      index: index,
+      admnNo: admnNo,
+      csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+    },
+    success: () => {
+      window.location.reload();
+    },
+    error: () => {
+      window.location.reload();
+    },
+  });
+});

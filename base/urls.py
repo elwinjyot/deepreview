@@ -11,4 +11,5 @@ urlpatterns = [
     path('toggleRelease/', view=toggleRelease, name="toggleRelease"),
     path('addMarksheet/', view=addMarksheet, name="addMarksheet"),
     path('deleteStud/', view=deleteStud, name="deleteStud"),
+    path('deleteMarksheet/', view=deleteMarksheet, name="deleteMarksheet"),
 ]

@@ -28,6 +28,8 @@ class Student(models.Model):
     remarks = models.TextField(null=False, blank=True)
     password = models.CharField(
         max_length=8, null=False, blank=True, default="")
+    marksheet = models.TextField(
+        verbose_name="Marksheet as Json", blank=True, null=False, default="{}")
 
     def __str__(self) -> str:
         return f"{self.admnNo} | {self.name}"

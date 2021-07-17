@@ -21,6 +21,7 @@ def studentDetail(request):
     context = {
         'student': request.user.student,
         'marksheet': studentMarksheet,
-        'feeInfo': feeInfo
+        'feeInfo': feeInfo,
+        'sub_list': ["G.K", "V.Ed", "Dance", "Music", "HPE", "Computer"]
     }
     return render(request=request, template_name='Parents/studDetail.html', context=context)

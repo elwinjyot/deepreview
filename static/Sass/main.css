@@ -1163,14 +1163,57 @@ body #student-details-container #student-wrapper #marksheet .set .set-head h2 {
   font-weight: 200;
 }
 
-body #student-details-container #student-wrapper #marksheet .set .set-head .toggle-container {
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 12px;
+  background-color: #323232 !important;
+  padding: 4px 8px;
+  background-color: #fc6e20;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 100;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls button:focus {
+  outline: none;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls button:active {
+  background-color: #da5812;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls button img {
+  width: 100%;
+  height: auto;
+  max-width: 1.3rem;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container {
   background-color: #f0f0f0;
   width: 60px;
   height: 30px;
   border-radius: 30px 30px;
 }
 
-body #student-details-container #student-wrapper #marksheet .set .set-head .toggle-container .toggle-wrapper {
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container .toggle-wrapper {
   width: 100%;
   height: inherit;
   display: -webkit-box;
@@ -1184,7 +1227,7 @@ body #student-details-container #student-wrapper #marksheet .set .set-head .togg
   border-radius: 30px 30px;
 }
 
-body #student-details-container #student-wrapper #marksheet .set .set-head .toggle-container .toggle-wrapper .toggle-globe {
+body #student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container .toggle-wrapper .toggle-globe {
   height: 25px;
   width: 25px;
   border-radius: 50%;

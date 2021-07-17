@@ -56,13 +56,8 @@ $(".format-change").change(function () {
 
   if (format == "UT") {
     console.log(format);
-    $(".format-holder").html(
-      `<section id="addSubject-bar">
-          <p>Add Subject</p>
-          <button type="button" onclick=addSubject()>+</button>
-        </section>
-        <section class="subjects"></section>`
-    );
+    $(".addSubject").html(`<button type="button" onclick=addSubject()>Add Subject</button>`);
+    $(".format-holder").html(`<section class="subjects"></section>`);
     $(".title-dropdown").html(`
       <option value="PT1" data-index="0">PT1</option>
       <option value="PT3" data-index="2"">PT3</option>

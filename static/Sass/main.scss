@@ -623,26 +623,43 @@ body {
               color: $text-color-dark;
               @include OpenSans(200);
             }
-            .toggle-container {
-              background-color: rgb(240, 240, 240);
-              width: 60px;
-              height: 30px;
-              border-radius: 30px 30px;
-
-              .toggle-wrapper {
-                width: 100%;
-                height: inherit;
+            .controls {
+              display: flex;
+              button {
                 display: flex;
                 align-items: center;
-                padding: 0px 3px;
-                cursor: pointer;
+                justify-content: center;
+                margin-right: 12px;
+                background-color: $licorice !important;
+                @include button-secondary(4px 8px);
+
+                img {
+                  width: 100%;
+                  height: auto;
+                  max-width: 1.3rem;
+                }
+              }
+              .toggle-container {
+                background-color: rgb(240, 240, 240);
+                width: 60px;
+                height: 30px;
                 border-radius: 30px 30px;
 
-                .toggle-globe {
-                  height: 25px;
-                  width: 25px;
-                  border-radius: 50%;
-                  background-color: $licorice;
+                .toggle-wrapper {
+                  width: 100%;
+                  height: inherit;
+                  display: flex;
+                  align-items: center;
+                  padding: 0px 3px;
+                  cursor: pointer;
+                  border-radius: 30px 30px;
+
+                  .toggle-globe {
+                    height: 25px;
+                    width: 25px;
+                    border-radius: 50%;
+                    background-color: $licorice;
+                  }
                 }
               }
             }
