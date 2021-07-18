@@ -1248,6 +1248,38 @@ body #student-details-container #student-wrapper #marksheet .set .ut {
       grid-template-columns: repeat(4, 1fr);
 }
 
+body #student-details-container #student-wrapper #marksheet .set .result-container {
+  padding: 12px 0px;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .result-container .result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 12px;
+  background-color: #323232;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .result-container .result span {
+  font-family: OpenSans;
+  font-weight: 300;
+}
+
+body #student-details-container #student-wrapper #marksheet .set .result-container .result:last-child {
+  margin-bottom: 0px;
+}
+
 body #student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper {
   padding: 12px 0px;
   display: -ms-grid;

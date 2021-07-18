@@ -282,3 +282,21 @@ $(".delete-marksheet").click(function () {
     },
   });
 });
+
+// Edit Student
+$(".edit-stud").click(function () {
+  let admnNo = $(this).attr("data-admnNo");
+  $.ajax({
+    method: "POST",
+    url: "/teach/editStudent/",
+    header: { "Content-Type": "application/json", "x-action": "getStudent" },
+    data: {
+      admnNo: admnNo,
+      csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+    },
+    success: (res) => {
+      console.log(res);
+    },
+    error: () => {},
+  });
+});

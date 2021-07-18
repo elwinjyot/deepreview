@@ -673,6 +673,28 @@ body {
           .ut {
             grid-template-columns: repeat(4, 1fr);
           }
+          .result-container {
+            padding: 12px 0px;
+
+            .result {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 12px;
+              background-color: $licorice;
+              color: white;
+              margin-bottom: 10px;
+              border-radius: 6px;
+              @include OpenSans(100);
+
+              span {
+                @include OpenSans(300);
+              }
+              &:last-child {
+                margin-bottom: 0px;
+              }
+            }
+          }
           .subject-mark-wrapper {
             padding: 12px 0px;
             display: grid;

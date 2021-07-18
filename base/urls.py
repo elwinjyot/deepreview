@@ -12,4 +12,5 @@ urlpatterns = [
     path('addMarksheet/', view=addMarksheet, name="addMarksheet"),
     path('deleteStud/', view=deleteStud, name="deleteStud"),
     path('deleteMarksheet/', view=deleteMarksheet, name="deleteMarksheet"),
+    path('editStudent/', view=editStudent, name="editStudent"),
 ]

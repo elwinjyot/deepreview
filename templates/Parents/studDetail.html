@@ -37,6 +37,7 @@
       <div class="ut-set set">
         <h2>{{set.HEAD}}</h2>
         {% if set.RELEASED %}
+
         <div class="subject-mark-wrapper ut">
           {% for subject in set.BODY %}
           <div class="subject-mark-display">
@@ -48,6 +49,16 @@
             {% endif %}
           </div>
           {% endfor %}
+        </div>
+        <div class="result-container">
+          <div class="result">
+            <p>Total</p>
+            <span>{{set.TOTAL}}</span>
+          </div>
+          <div class="result">
+            <p>Percentage</p>
+            <span>{{set.PERCENTAGE}}%</span>
+          </div>
         </div>
         {% else %}
         <h2 class="not-released">Yet to be released!</h2>

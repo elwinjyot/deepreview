@@ -8,16 +8,9 @@ import json
 def studentDetail(request):
     admnNo = request.user.student.admnNo
     student = Student.objects.get(admnNo=admnNo)
-    grade = student.grade_set.all()[0]
-    className = grade.className
     feeInfo = json.loads(student.feeStatus)
-    with open("./marksheet.json", 'r') as file:
-        data = json.load(file)
-        try:
-            studentMarksheet = data[className][str(admnNo)]
-        except:
-            studentMarksheet = None
-        file.close()
+    studentMarksheet = json.loads(student.marksheet)
+    print(studentMarksheet)
     context = {
         'student': request.user.student,
         'marksheet': studentMarksheet,

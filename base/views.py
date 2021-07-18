@@ -1,5 +1,5 @@
 import json
-from os import stat
+from django.core import serializers as ser
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import *
@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 import random
 import string
 from .decorators import allowed_users
+from .tools import *
 # Create your views here.
 
 
@@ -34,7 +35,6 @@ def studentDetailView(request, gradeId, id):
     feeInfo = json.loads(student.feeStatus)
     # Get students Marksheet
     studentMarksheet = json.loads(student.marksheet)
-    print(studentMarksheet)
     context = {
         'class': className,
         'student': student,
@@ -133,15 +133,18 @@ def addMarksheet(request):
         admnNo = request.POST.get('admnNo')
         student = Student.objects.get(admnNo=int(admnNo))
         subject = json.loads(request.POST.get('subject'))
+        testFormat = request.POST.get('format')
+        results = calculateTotal(subjects=subject, testFormat=testFormat)
         index = request.POST.get('index')
         head = request.POST.get('head')
-        testFormat = request.POST.get('format')
         marksheetData = json.loads(student.marksheet)
         marksheetData.append({
             "INDEX": index,
             "HEAD": head,
             "FORMAT": testFormat,
             "RELEASED": False,
+            "TOTAL": results['total'],
+            "PERCENTAGE": results['perc'],
             "BODY": subject
         })
         student.marksheet = json.dumps(marksheetData)
@@ -174,6 +177,14 @@ def deleteMarksheet(request):
         student.save()
         return JsonResponse(True, safe=False)
 
+
+def editStudent(request):
+    if request.is_ajax and request.method == 'POST':
+        print(request)
+        student = Student.objects.get(admnNo=request.GET['admnNo'])
+        print(student)
+        return JsonResponse(True, safe=False)
+    return JsonResponse(True, safe=False)
 # Errors
 
 
