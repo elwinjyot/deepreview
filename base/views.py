@@ -1,7 +1,6 @@
 import json
-from django.core import serializers as ser
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.shortcuts import render
+from django.http import JsonResponse, response
 from .models import *
 from django.contrib.auth.decorators import login_required
 import random
@@ -98,7 +97,7 @@ def addStudent(request, gradeId):
                 user = User.objects.create_user(
                     username=username, password=password)
                 student = Student.objects.create(user=user, password=password, admnNo=data['admnNo'], name=data['name'],
-                                                 fathersName=data['fatherName'], mothersName=data['motherName'], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat), marksheet="[]")
+                                                 fathersName=data['fatherName'], mothersName=data['motherName'], guardiansName=data["guardianName"], dateOfBirth=data['dob'], aadharNumber=data['adNo'], gender=data['gender'], address=data['address'], remarks=data['remarks'], feeStatus=json.dumps(feeFormat), marksheet="[]", attendance=data["attdn"])
                 grade = Grade.objects.get(id=gradeId)
                 grade.students.add(student)
                 grade.save()
@@ -178,13 +177,30 @@ def deleteMarksheet(request):
         return JsonResponse(True, safe=False)
 
 
-def editStudent(request):
+def editStudent(request, admno):
     if request.is_ajax and request.method == 'POST':
-        print(request)
-        student = Student.objects.get(admnNo=request.GET['admnNo'])
-        print(student)
-        return JsonResponse(True, safe=False)
-    return JsonResponse(True, safe=False)
+        try:
+            student = Student.objects.get(admnNo=admno)
+        except:
+            raise Exception("Student not found")
+        else:
+            student.admnNo = request.POST.get('admnNo')
+            student.name = request.POST.get('name')
+            student.fathersName = request.POST.get('father')
+            student.mothersName = request.POST.get('mother')
+            student.guardiansName = request.POST.get('guardian')
+            student.attendance = request.POST.get('attdn')
+            student.dateOfBirth = request.POST.get('dob')
+            student.aadharNumber = request.POST.get('adNo')
+            student.gender = request.POST.get('gender')
+            student.remarks = request.POST.get('remarks')
+            try:
+                student.save()
+            except Exception as e:
+                raise Exception("Couldn't save student", e)
+            else:
+                return JsonResponse(True, safe=False)
+
 # Errors
 
 

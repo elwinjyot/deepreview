@@ -188,6 +188,7 @@ body {
     #addStudent-container {
       position: fixed;
       display: none;
+      z-index: 9;
       justify-content: flex-end;
       height: 100vh;
       width: 100vw;
@@ -213,7 +214,8 @@ body {
           max-width: 62px;
           margin: 2rem 0rem 1rem 0rem;
         }
-        #addStudentForm {
+        #addStudentForm,
+        #editStudentForm {
           padding: 2.5rem 0rem;
           display: flex;
           flex-direction: column;
@@ -548,7 +550,19 @@ body {
 
         h2 {
           color: $text-color-dark;
+          display: flex;
+          justify-content: space-between;
           @include OpenSans(200);
+
+          button {
+            @include button-secondary(4px 12px);
+
+            img {
+              width: 100%;
+              height: auto;
+              max-width: 1.3rem;
+            }
+          }
         }
         .all-details {
           padding: 12px 0px 0px 0px;
@@ -562,6 +576,17 @@ body {
           #part-2 {
             border-left: 3px solid $text-color-dark;
             padding-left: 16px;
+          }
+          #part-4 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            padding: 8px 12px;
+            color: white;
+            background-color: $licorice;
+            border-radius: 4px;
+            grid-column-start: 1;
+            grid-column-end: 3;
           }
           #part-3 {
             padding-top: 12px;

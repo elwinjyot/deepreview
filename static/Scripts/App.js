@@ -147,7 +147,7 @@ $("#addStudent-panel-open-btn").click(function () {
 $("#addStudentForm").submit(function (event) {
   event.preventDefault();
   let submitBtn = $("#create-student-btn");
-  // Start Aniamtion
+  // Start Animation
   $(submitBtn).text("Creating...");
   let gradeId = $(this).attr("data-gradeId");
   let formData = {
@@ -155,11 +155,13 @@ $("#addStudentForm").submit(function (event) {
     name: $(this).find(`input[name="name"]`).val(),
     fatherName: $(this).find(`input[name="father"]`).val(),
     motherName: $(this).find(`input[name="mother"]`).val(),
+    guardianName: $(this).find(`input[name="guardian"]`).val(),
     dob: $(this).find(`input[name="dob"]`).val(),
     gender: $(this).find(`select[name="gender"] option:selected`).val(),
     adNo: $(this).find(`input[name="adNo"]`).val(),
     address: $(this).find(`input[name="address"]`).val(),
     remarks: $(this).find(`textarea[name="remarks"]`).val(),
+    attdn: $(this).find(`input[name="attdn"]`).val(),
   };
   $.ajax({
     method: "POST",
@@ -284,19 +286,67 @@ $(".delete-marksheet").click(function () {
 });
 
 // Edit Student
-$(".edit-stud").click(function () {
-  let admnNo = $(this).attr("data-admnNo");
+$(".edit-student-button").click(function () {
+  let as_container = $("#addStudent-container");
+  // Open editing panel
+  gsap
+    .to($(as_container), {
+      display: "flex",
+      duration: 0.2,
+    })
+    .then(() => {
+      gsap
+        .to($(as_container), {
+          opacity: 1,
+          duration: 0.2,
+        })
+        .then(() => {
+          gsap.to("#addStud-wrapper", {
+            x: "0%",
+            duration: 0.5,
+            ease: Expo.easeOut,
+          });
+        });
+    });
+  // Open editing panel
+});
+
+// Save Edited student data
+$("#editStudentForm").submit(function (event) {
+  event.preventDefault();
+  const saveBtn = $(this).find("#save-student-btn");
+  const admno = saveBtn.attr("data-admnNo");
+  saveBtn.text("Saving...");
   $.ajax({
     method: "POST",
-    url: "/teach/editStudent/",
-    header: { "Content-Type": "application/json", "x-action": "getStudent" },
+    url: `/teach/editStudent/${admno}/`,
     data: {
-      admnNo: admnNo,
+      admnNo: $(this).find(`input[name="admnNo"]`).val(),
+      name: $(this).find(`input[name="name"]`).val(),
+      father: $(this).find(`input[name="father"]`).val(),
+      mother: $(this).find(`input[name="mother"]`).val(),
+      guardian: $(this).find(`input[name="guardian"]`).val(),
+      dob: $(this).find(`input[name="dob"]`).val(),
+      adNo: $(this).find(`input[name="adNo"]`).val(),
+      address: $(this).find(`input[name="address"]`).val(),
+      attdn: $(this).find(`input[name="attdn"]`).val(),
+      remarks: $(this).find(`textarea[name="remarks"]`).val(),
+      gender: $(this).find(`select[name="gender"] option:selected`).val(),
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },
     success: (res) => {
-      console.log(res);
+      if (res) {
+        saveBtn.text("Changes Saved...Refreshing!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }
     },
-    error: () => {},
+    error: () => {
+      saveBtn.text("Cannot save the changes right now!");
+      setTimeout(() => {
+        saveBtn.text("Save");
+      }, 1300);
+    },
   });
 });

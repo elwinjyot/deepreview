@@ -13,6 +13,70 @@
 {% endblock %}
 
 {% block main %}
+<section id="addStudent-container">
+  <div id="addStud-wrapper">
+    <img class="place-ic" src="{% static 'Images/addStud-ic.png' %}" alt="" />
+    <form id="editStudentForm" data-gradeId="{{grade}}">
+      {% csrf_token %}
+      <div class="input-group">
+        <input autocomplete="off" required type="number" min="0" value="{{student.admnNo}}" name="admnNo" placeholder="Admission Number" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" required type="text" name="name" value="{{student.name}}" placeholder="Full Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="father" value="{{student.fathersName}}" placeholder="Father's Name/Guardian's Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" value="{{student.mothersName}}" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="guardian" placeholder="Guardian's Name" value="{{student.guardiansName}}" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="dob" value="{{student.dateOfBirth}}" placeholder="Date of Birth" />
+      </div>
+      <div class="input-group gender-grp">
+        <p>Gender</p>
+        <div class="select-option-group">
+          <div class="drop-btn-div">
+            <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
+          </div>
+          <select name="gender">
+            {% if student.gender == "Male" %}
+            <option value="Male" selected>Male</option>
+            {% else %}
+            <option value="Male">Male</option>
+            {% endif %}
+            {% if student.gender == "Female" %}
+            <option value="Female" selected>Female</option>
+            {% else %}
+            <option value="Female">Female</option>
+            {% endif %}
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="number" name="adNo" min="0" value="{{student.aadharNumber}}" placeholder="Aadhar Number" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="address" placeholder="Address" value="{{student.address}}" />
+      </div>
+      <div class="input-group remark-inp">
+        <textarea name="remarks" placeholder="Remarks" cols="30" maxlength="300" rows="5" value="{{student.remarks}}"></textarea>
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="attdn" placeholder="Attendance" value="{{student.attendance}}" />
+      </div>
+      <div class="input-group">
+        <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save</button>
+      </div>
+      <div class="input-group cancel-grp">
+        <button type="button" id="close-addStudent-panel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</section>
 <section id="create-marksheet-container">
   <section id="create-marksheet-wrapper">
     <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="">
@@ -58,11 +122,14 @@
 <section id="student-details-container">
   <div id="student-wrapper">
     <section id="student-info">
-      <h2>{{student.admnNo}} | {{student.name}}</h2>
+      <h2 class="studentDetailHeader"><p>{{student.admnNo}} | {{student.name}}</p><button class="edit-student-button"><img src="{% static 'Images/edit-ic.png' %}" alt="" /></button></h2>
       <div class="all-details">
         <section id="part-1">
           <p>Father's Name: {{student.fathersName}}</p>
           <p>Mother's Name: {{student.mothersName}}</p>
+          {% if student.guardiansName|length != 0 %}
+          <p>Guardian's Name: {{student.guardiansName}}</p>
+          {% endif %}
           <p>DOB: {{student.dateOfBirth}}</p>
           <p>Gender: {{student.gender}}</p>
         </section>
@@ -72,9 +139,15 @@
           <p>Username: {{student.user.username}}</p>
           <p>Password: {{student.password}}</p>
         </section>
+        {% if student.remarks|length != 0 %}
         <section id="part-3">
           <p style="margin-bottom: 6px">Remarks:</p>
           <p>{{student.remarks}}</p>
+        </section>
+        {% endif %}
+        <section id="part-4">
+          <p>Attendence</p>
+          <p style="font-weight: 200;">{{student.attendance}}</p>
         </section>
       </div>
     </section>

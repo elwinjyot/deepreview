@@ -14,8 +14,9 @@ class Student(models.Model):
         User, on_delete=models.CASCADE, blank=True, null=True)
     admnNo = models.IntegerField(verbose_name='Admission Number')
     name = models.CharField(max_length=100, null=False, blank=False)
-    fathersName = models.CharField(max_length=100, null=False, blank=False)
-    mothersName = models.CharField(max_length=100, null=False, blank=False)
+    fathersName = models.CharField(max_length=100, null=False, blank=True)
+    guardiansName = models.CharField(max_length=100, null=False, blank=True)
+    mothersName = models.CharField(max_length=100, null=False, blank=True)
     dateOfBirth = models.CharField(
         max_length=10, null=False, default="NIL", blank=True)
     aadharNumber = models.CharField(max_length=12,
@@ -28,6 +29,8 @@ class Student(models.Model):
     remarks = models.TextField(null=False, blank=True)
     password = models.CharField(
         max_length=8, null=False, blank=True, default="")
+    attendance = models.CharField(
+        max_length=8, blank=True, null=False, default="0")
     marksheet = models.TextField(
         verbose_name="Marksheet as Json", blank=True, null=False, default="[]")
 

@@ -351,6 +351,7 @@ body main {
 body main #addStudent-container {
   position: fixed;
   display: none;
+  z-index: 9;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -389,7 +390,8 @@ body main #addStudent-container #addStud-wrapper .place-ic {
   margin: 2rem 0rem 1rem 0rem;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm {
+body main #addStudent-container #addStud-wrapper #addStudentForm,
+body main #addStudent-container #addStud-wrapper #editStudentForm {
   padding: 2.5rem 0rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -404,13 +406,15 @@ body main #addStudent-container #addStud-wrapper #addStudentForm {
   width: 90%;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .remark-inp {
+body main #addStudent-container #addStud-wrapper #addStudentForm .remark-inp,
+body main #addStudent-container #addStud-wrapper #editStudentForm .remark-inp {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 3;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button {
   width: 100%;
   padding: 12px 14px;
   background-color: transparent;
@@ -423,20 +427,24 @@ body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp but
   font-size: 1em;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button:focus {
   outline: none;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:active {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:active,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button:active {
   background-color: #da5812da !important;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group {
   width: 100%;
   padding: 6px 0px;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"] {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"],
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,21 +466,25 @@ body main #addStudent-container #addStud-wrapper #addStudentForm .input-group bu
   font-size: 1em;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"]:focus {
   outline: none;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:active {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:active,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"]:active {
   background-color: #da5812;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"] img {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"] img,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"] img {
   height: 100%;
   max-width: 28px;
   margin-bottom: 0px;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group input {
   padding: 14px 12px;
   width: 100%;
   border: none;
@@ -483,11 +495,13 @@ body main #addStudent-container #addStud-wrapper #addStudentForm .input-group in
   font-weight: 100;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group input:focus {
   outline: none;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group textarea {
   resize: none;
   padding: 14px 12px;
   width: 100%;
@@ -499,7 +513,8 @@ body main #addStudent-container #addStud-wrapper #addStudentForm .input-group te
   font-weight: 100;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .input-group textarea:focus {
   outline: none;
 }
 
@@ -1013,8 +1028,40 @@ body #student-details-container #student-wrapper #student-info {
 
 body #student-details-container #student-wrapper #student-info h2 {
   color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: OpenSans;
   font-weight: 200;
+}
+
+body #student-details-container #student-wrapper #student-info h2 button {
+  padding: 4px 12px;
+  background-color: #fc6e20;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 100;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+body #student-details-container #student-wrapper #student-info h2 button:focus {
+  outline: none;
+}
+
+body #student-details-container #student-wrapper #student-info h2 button:active {
+  background-color: #da5812;
+}
+
+body #student-details-container #student-wrapper #student-info h2 button img {
+  width: 100%;
+  height: auto;
+  max-width: 1.3rem;
 }
 
 body #student-details-container #student-wrapper #student-info .all-details {
@@ -1034,6 +1081,23 @@ body #student-details-container #student-wrapper #student-info .all-details #par
 body #student-details-container #student-wrapper #student-info .all-details #part-2 {
   border-left: 3px solid #333;
   padding-left: 16px;
+}
+
+body #student-details-container #student-wrapper #student-info .all-details #part-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 12px;
+  padding: 8px 12px;
+  color: white;
+  background-color: #323232;
+  border-radius: 4px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 body #student-details-container #student-wrapper #student-info .all-details #part-3 {

@@ -21,10 +21,13 @@
         <input autocomplete="off" required type="text" name="name" placeholder="Full Name" />
       </div>
       <div class="input-group">
-        <input autocomplete="off" type="text" name="father" placeholder="Father's Name/Guardian's Name" />
+        <input autocomplete="off" type="text" name="father" placeholder="Father's Name" />
       </div>
       <div class="input-group">
         <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" />
+      </div>
+      <div class="input-group">
+        <input autocomplete="off" type="text" name="guardian" placeholder="Guardian's Name" />
       </div>
       <div class="input-group">
         <input autocomplete="off" type="text" name="dob" placeholder="Date of Birth" />
@@ -51,6 +54,9 @@
         <textarea name="remarks" placeholder="Remarks" cols="30" maxlength="300" rows="5"></textarea>
       </div>
       <div class="input-group">
+        <input autocomplete="off" type="text" name="attdn" placeholder="Attendance" />
+      </div>
+      <div class="input-group">
         <button type="submit" id="create-student-btn">Create Student</button>
       </div>
       <div class="input-group cancel-grp">
@@ -74,7 +80,6 @@
           <h2>{{student.admnNo}} | {{student.name}}</h2>
         </a>
         <div class="control-btns">
-          <!-- <button class="edit-stud" data-admnNo="{{student.admnNo}}" style="margin-right: 12px"><img src="{% static 'Images/edit-ic.png' %}" alt="" /></button> -->
           <button class="delete-stud" data-admnNo="{{student.admnNo}}"><img src="{% static 'Images/delete-ic.png' %}" alt="" /></button>
         </div>
       </div>
