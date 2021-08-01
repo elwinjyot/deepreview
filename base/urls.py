@@ -13,4 +13,5 @@ urlpatterns = [
     path('deleteStud/', view=deleteStud, name="deleteStud"),
     path('deleteMarksheet/', view=deleteMarksheet, name="deleteMarksheet"),
     path('editStudent/<str:admno>/', view=editStudent, name="editStudent"),
+    path('uploadMarksheet/', view=addMarksheetFromCSV, name="uploadMarksheet"),
 ]

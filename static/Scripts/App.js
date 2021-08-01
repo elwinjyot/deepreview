@@ -350,3 +350,20 @@ $("#editStudentForm").submit(function (event) {
     },
   });
 });
+
+// Upload Marksheet
+$("#uploadCSV").change(function () {
+  let marksheetAsCSV = new FormData();
+  marksheetAsCSV.append("marksheet", $(this)[0].files[0]);
+  console.log(marksheetAsCSV);
+  $.ajax({
+    method: "POST",
+    url: "/teach/uploadMarksheet/",
+    processData: false,
+    contentType: false,
+    data: marksheetAsCSV,
+    headers: { "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val() },
+    success: () => {},
+    error: () => {},
+  });
+});

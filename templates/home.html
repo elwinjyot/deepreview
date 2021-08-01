@@ -9,6 +9,7 @@
   <p>Are you sure you want to delete the student!</p>
   <div class="btns"><button class="cancel-delete">Cancel</button><button class="delete-confirm" data-grade="{{className}}">Delete</button></div>
 </section>
+
 <section id="addStudent-container">
   <div id="addStud-wrapper">
     <img class="place-ic" src="{% static 'Images/addStud-ic.png' %}" alt="" />
@@ -69,10 +70,18 @@
   <div class="students-list">
     <div class="head-stock">
       <h2>Students List</h2>
-      <button id="addStudent-panel-open-btn"><img src="{% static 'Images/plus-ic.png' %}" alt="" /> Add Student</button>
+      <div class="student-list-control-panel">
+        <!-- <section id="marksheet-upload-confirm">
+          <input type="file" name="uploadCSV" id="uploadCSV" />
+          <label><img src="{% static 'Images/upload-ic.png' %}" alt="" /></label>
+        </section> -->
+        <button id="addStudent-panel-open-btn">
+          <img src="{% static 'Images/plus-ic.png' %}" alt="" />
+        </button>
+      </div>
     </div>
     {% if students|length == 0 %}
-    <h2 id="empty-msg">Oh, so empty</h2>
+    <h2 id="empty-msg">Oh my, so empty!</h2>
     {% else %} {% for student in students %}
     <div class="student" data-admnNo="{{student.admnNo}}" data-name="{{student.name}}">
       <div class="basic-info-wrap">

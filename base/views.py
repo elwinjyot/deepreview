@@ -133,7 +133,7 @@ def addMarksheet(request):
         student = Student.objects.get(admnNo=int(admnNo))
         subject = json.loads(request.POST.get('subject'))
         testFormat = request.POST.get('format')
-        results = calculateTotal(subjects=subject, testFormat=testFormat)
+        results = tools.calculateTotal(subjects=subject, testFormat=testFormat)
         index = request.POST.get('index')
         head = request.POST.get('head')
         marksheetData = json.loads(student.marksheet)
@@ -206,3 +206,25 @@ def editStudent(request, admno):
 
 def error403(request, exception):
     return render(request=request, template_name="Errors/403.html")
+
+
+# Shortcut Tools
+tools = Tools()
+
+
+def addMarksheetFromCSV(request):
+    if request.is_ajax and request.method == 'POST':
+        csvFile = request.FILES.get("marksheet")
+        result = tools.setupMarksheetFromCSV(data=csvFile)
+        allStudents = Student.objects.all()
+        for student in allStudents:
+            admnNo = student.admnNo
+            currentMarksheet = json.loads(student.marksheet)
+            try:
+                currentMarksheet.append(result[str(admnNo)])
+            except KeyError:
+                continue
+            else:
+                student.marksheet = json.dumps(currentMarksheet)
+                student.save()
+    return JsonResponse(True, safe=False)

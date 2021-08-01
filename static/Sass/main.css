@@ -612,13 +612,60 @@ body main #class-details .students-list .head-stock h2 {
   font-weight: 200;
 }
 
-body main #class-details .students-list .head-stock button {
+body main #class-details .students-list .head-stock .student-list-control-panel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm {
+  margin-right: 6px;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm input {
+  opacity: 0;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  cursor: pointer;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm label {
+  pointer-events: none;
+  display: block;
+  position: relative;
+  background: #fc6e20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm label img {
+  height: auto;
+  max-width: 1.2rem;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 8px;
   padding: 8px 12px;
   background-color: #fc6e20;
   color: white;
@@ -630,17 +677,20 @@ body main #class-details .students-list .head-stock button {
   font-size: 1em;
 }
 
-body main #class-details .students-list .head-stock button img {
-  height: auto;
-  max-width: 1.2rem;
-  margin-right: 8px;
+body main #class-details .students-list .head-stock .student-list-control-panel button:last-child {
+  margin: 0;
 }
 
-body main #class-details .students-list .head-stock button:focus {
+body main #class-details .students-list .head-stock .student-list-control-panel button img {
+  height: auto;
+  max-width: 1.2rem;
+}
+
+body main #class-details .students-list .head-stock .student-list-control-panel button:focus {
   outline: none;
 }
 
-body main #class-details .students-list .head-stock button:active {
+body main #class-details .students-list .head-stock .student-list-control-panel button:active {
   background-color: #da5812;
 }
 
@@ -1751,8 +1801,16 @@ body #student-details-container #fee-info ul li {
     width: 90%;
   }
   body main #student-details-container #student-wrapper #student-info .all-details {
-    -ms-grid-columns: 100%;
-        grid-template-columns: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   body main #student-details-container #student-wrapper #student-info .all-details #part-1 {
     padding: 0px;
@@ -1762,9 +1820,10 @@ body #student-details-container #fee-info ul li {
     padding: 0px;
   }
   body main #student-details-container #student-wrapper #student-info .all-details #part-3 {
-    -ms-grid-column: auto;
-        grid-column-start: auto;
-    grid-column-end: auto;
+    width: 100%;
+  }
+  body main #student-details-container #student-wrapper #student-info .all-details #part-4 {
+    width: 100%;
   }
   body main #student-details-container #student-wrapper #marksheet .marksheet-main-head h2 {
     font-size: 20px;
@@ -1784,10 +1843,10 @@ body #student-details-container #fee-info ul li {
     width: 40% !important;
   }
   #login-body #login-form {
-    width: 90%;
+    width: 85%;
   }
   #login-body #login-form .input-group {
-    width: 80%;
+    width: 100%;
   }
   .fourOthreeBody h1 {
     width: 70%;

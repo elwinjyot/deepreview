@@ -21,17 +21,24 @@
           <p>Aadhar Number: {{student.aadharNumber}}</p>
           <p>Address: {{student.address}}</p>
         </section>
+        {% if student.remarks|length != 0 %}
         <section id="part-3">
           <p style="margin-bottom: 6px">Remarks:</p>
           <p>{{student.remarks}}</p>
         </section>
+        {% endif %}
+        <section id="part-4">
+          <p>Attendence</p>
+          <p style="font-weight: 200">{{student.attendance}}</p>
+        </section>
       </div>
     </section>
     <section id="marksheet">
-      {% if marksheet is None %}
+      {% if marksheet|length == 0 %}
       <div class="empty-message">
         <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="" />
         <h3>Marksheet not prepared!</h3>
+        <button class="cr-marksheet" data-admnNo="{{student.admnNo}}" data-grade="{{class}}">Create Marksheet</button>
       </div>
       {% else %} {% for set in marksheet %} {% if set.FORMAT == "UT" %}
       <div class="ut-set set">

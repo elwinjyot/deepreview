@@ -326,15 +326,53 @@ body {
           h2 {
             @include OpenSans(200);
           }
-          button {
+          .student-list-control-panel {
             display: flex;
             align-items: center;
-            img {
-              height: auto;
-              max-width: 1.2rem;
-              margin-right: 8px;
+
+            #marksheet-upload-confirm {
+              margin-right: 6px;
+
+              input {
+                opacity: 0;
+                width: 40px;
+                height: 35px;
+                position: absolute;
+                cursor: pointer;
+              }
+              label {
+                pointer-events: none;
+                display: block;
+                position: relative;
+                background: $blue-gem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                cursor: pointer;
+                padding: 8px 12px;
+                border-radius: 5px;
+
+                img {
+                  height: auto;
+                  max-width: 1.2rem;
+                }
+              }
             }
-            @include button-secondary(8px 12px);
+            button {
+              display: flex;
+              align-items: center;
+              margin-right: 8px;
+
+              &:last-child {
+                margin: 0;
+              }
+              img {
+                height: auto;
+                max-width: 1.2rem;
+              }
+              @include button-secondary(8px 12px);
+            }
           }
         }
         .student {
@@ -1049,8 +1087,10 @@ $breakpoint-mobile: 414px;
         #student-wrapper {
           #student-info {
             .all-details {
-              grid-template-columns: 100%;
-
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              // grid-template-columns: 1fr;
               #part-1 {
                 padding: 0px;
               }
@@ -1059,8 +1099,10 @@ $breakpoint-mobile: 414px;
                 padding: 0px;
               }
               #part-3 {
-                grid-column-start: auto;
-                grid-column-end: auto;
+                width: 100%;
+              }
+              #part-4 {
+                width: 100%;
               }
             }
           }
@@ -1096,10 +1138,10 @@ $breakpoint-mobile: 414px;
   }
   #login-body {
     #login-form {
-      width: 90%;
+      width: 85%;
 
       .input-group {
-        width: 80%;
+        width: 100%;
       }
     }
   }
