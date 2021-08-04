@@ -213,7 +213,7 @@ $("#addStudentForm").submit(function (event) {
     error: () => {
       popNotiCard("Oooh!", "<p>Something went wrong! Our team is on the way &#128521;</p>", true);
       $(this).trigger("reset");
-      $(submitBtn).text(`Create Student`);
+      $(submitBtn).text(`Add Student`);
     },
   });
 });
@@ -267,7 +267,7 @@ $(".cancel-delete").click(function () {
   }, 100);
 });
 $(".delete-confirm").click(function () {
-  $(this).text("Deleting");
+  spinner(this);
   $.ajax({
     method: "POST",
     url: "/teach/deleteStud/",
@@ -277,13 +277,14 @@ $(".delete-confirm").click(function () {
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },
     success: () => {
-      $(this).text("Deleted");
+      $(this).html("<p>&#128077;</p>");
       setTimeout(() => {
         window.location.reload();
       }, 1000);
     },
     error: () => {
       $(this).text("Delete");
+      popNotiCard("Oops!", "<p>Something's not right! We are looking into it &#128521;</p>", true);
       $("#confirmation-box p").text("Something went wrong!Please try again later.");
       setTimeout(() => {
         gsap.to("#confirmation-box", {
