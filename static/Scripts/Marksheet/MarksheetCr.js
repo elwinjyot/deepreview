@@ -1,3 +1,33 @@
+function retract() {
+  const card = $("#notification-container");
+  gsap.to(card, {
+    y: "-150%",
+    duration: 0.6,
+    ease: Expo.easeOut,
+  });
+}
+
+$("#notification-container").click(() => {
+  retract();
+});
+
+function popNotiCard(head, msg, ret) {
+  const card = $("#notification-container");
+  gsap.to(card, {
+    y: "0%",
+    duration: 0.6,
+    ease: Expo.easeOut,
+  });
+  $(".head").text(head);
+  $(".message").html(msg);
+
+  if (ret) {
+    setTimeout(() => {
+      retract();
+    }, 5000);
+  }
+}
+
 let marksheetFormat = {};
 
 let format = "UT";
@@ -63,8 +93,8 @@ $(".format-change").change(function () {
       <option value="PT3" data-index="2"">PT3</option>
     `);
   } else if (format == "MT") {
-    $(".format-holder").html(`
-    <h2>Terminal Examination form not available as of now!</h2>
+    $(".format-holder").html(`<p class="emp-ic">&#128533;</p>
+    <h2>Terminal Examination form is not ready yet!</h2>
     `);
     $(".title-dropdown").html(`
       <option value="PT2" data-index="1"">Half-Yearly</option>
@@ -108,7 +138,7 @@ function addSubject() {
 }
 
 $("#create-marksheet").submit(function (event) {
-  $(".submit-marksheet-cr").text("Creating");
+  spinner($(".submit-marksheet-cr"));
   event.preventDefault();
   let head = $(".title-dropdown option:selected").val();
   let index = $(".title-dropdown option:selected").attr("data-index");
@@ -136,16 +166,14 @@ $("#create-marksheet").submit(function (event) {
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },
     success: () => {
-      $(".submit-marksheet-cr").text("Created, Redirecting...");
+      $(".submit-marksheet-cr").html("<p>Marksheet Added &#128077;</p>");
       setTimeout(() => {
         window.location.reload();
       }, 1500);
     },
     error: () => {
-      $(".submit-marksheet-cr").text("Something went wrong! Try again later.");
-      setTimeout(() => {
-        $(".submit-marksheet-cr").text("Submit");
-      }, 2000);
+      popNotiCard("Oops!", "Something's not right! Our team is looking into it &#128519;", true);
+      $(".submit-marksheet-cr").text("Submit");
     },
   });
   console.log(subjectData);

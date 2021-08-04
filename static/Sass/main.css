@@ -81,6 +81,46 @@
   cursor: pointer;
 }
 
+#notification-container {
+  padding: 1rem 1rem 1rem 0.8rem;
+  background-color: #1f1f1f;
+  border-radius: 6px;
+  color: white;
+  position: absolute;
+  z-index: 100;
+  right: 2%;
+  top: 5%;
+  width: auto;
+  max-width: 20%;
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
+  overflow: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#notification-container img {
+  position: absolute;
+  width: 100%;
+  right: -25px;
+  top: -12px;
+  max-width: 58px;
+  height: auto;
+  margin-right: 6px;
+}
+
+#notification-container .noti-wrapper h2 {
+  margin-bottom: 12px;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#notification-container .noti-wrapper p {
+  word-break: break-all;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
 .active-toggle {
   background-color: #fc6e20;
   -webkit-box-pack: end;
@@ -451,11 +491,9 @@ body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .inp
   background-color: #da5812;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button img,
-body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button img {
-  height: 100%;
-  max-width: 28px;
-  margin-bottom: 0px;
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button p,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button p {
+  margin-left: 6px;
 }
 
 body main #addStudent-container #addStud-wrapper #addStudentForm .sep,
@@ -890,12 +928,11 @@ body main #selectClass-container .class-card {
   position: relative;
 }
 
-body main #selectClass-container .class-card img {
+body main #selectClass-container .class-card p {
   position: absolute;
   left: 20px;
   top: 20px;
-  height: auto;
-  max-width: 46px;
+  font-size: 46px;
 }
 
 body main #selectClass-container .class-card h2 {
@@ -947,8 +984,9 @@ body #create-marksheet-container #create-marksheet-wrapper {
   overflow-y: scroll;
 }
 
-body #create-marksheet-container #create-marksheet-wrapper img {
+body #create-marksheet-container #create-marksheet-wrapper .mark-ic {
   margin: 2rem 0rem;
+  font-size: 4.5rem;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet {
@@ -968,6 +1006,11 @@ body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .fo
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .emp-ic {
+  margin-bottom: 12px;
+  font-size: 45px;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects {
@@ -1285,8 +1328,12 @@ body #student-details-container #student-wrapper #marksheet .empty-message {
   font-weight: 300;
 }
 
+body #student-details-container #student-wrapper #marksheet .empty-message p {
+  font-size: 4rem;
+}
+
 body #student-details-container #student-wrapper #marksheet .empty-message h3 {
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #333;
   margin-top: 18px;
 }
@@ -1659,6 +1706,7 @@ body #student-details-container #fee-info ul li {
 }
 
 #login-body #login-form .space-fill-icon {
+  font-size: 6rem;
   padding-bottom: 2rem;
 }
 
@@ -1693,14 +1741,19 @@ body #student-details-container #fee-info ul li {
   position: relative;
 }
 
-#login-body #login-form .input-group .pass-group img {
+#login-body #login-form .input-group .pass-group button {
+  background-color: transparent;
+  width: auto;
+  padding: 4px;
   position: absolute;
   right: 12px;
-  top: 35%;
+  top: 25%;
   cursor: pointer;
-  width: 100%;
-  max-width: 24px;
-  height: auto;
+  font-size: 19px;
+}
+
+#login-body #login-form .input-group .pass-group button:active {
+  background-color: transparent;
 }
 
 #login-body #login-form .input-group label {
@@ -1883,6 +1936,9 @@ body #student-details-container #fee-info ul li {
 }
 
 @media (max-width: 414px) {
+  #notification-container {
+    max-width: 96%;
+  }
   #confirmation-box {
     bottom: -40%;
     padding: 2rem 1rem 1rem 2rem;

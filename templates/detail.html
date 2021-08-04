@@ -85,7 +85,7 @@
       </section>
       <section class="sep cta-sect">
         <div class="input-group">
-          <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save Student</button>
+          <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save Student<p>&#128190;</p></button>
         </div>
         <div class="input-group cancel-grp">
           <button type="button" id="close-addStudent-panel-btn">Cancel</button>
@@ -96,7 +96,7 @@
 </section>
 <section id="create-marksheet-container">
   <section id="create-marksheet-wrapper">
-    <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="">
+    <p class="mark-ic">&#128203;</p>
     <form id="create-marksheet">
       {% csrf_token %}
       <div class="input-group gender-grp">
@@ -139,7 +139,7 @@
 <section id="student-details-container">
   <div id="student-wrapper">
     <section id="student-info">
-      <h2 class="studentDetailHeader"><p>{{student.admnNo}} | {{student.name}}</p><button class="edit-student-button"><img src="{% static 'Images/edit-ic.png' %}" alt="" /></button></h2>
+      <h2 class="studentDetailHeader"><p>{{student.admnNo}} | {{student.name}}</p><button class="edit-student-button"><p>&#128394;</p></button></h2>
       <div class="all-details">
         <section id="part-1">
           <p>Father's Name: {{student.fathersName}}</p>
@@ -171,7 +171,7 @@
     <section id="marksheet">
       {% if marksheet|length == 0 %}
       <div class="empty-message">
-        <img src="{% static 'Images/empty-rugby-ic.png' %}" alt="" />
+        <p>&#128451;</p>
         <h3>Marksheet not prepared!</h3>
         <button class="cr-marksheet" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" >Create Marksheet</button>
       </div>

@@ -1,30 +1,48 @@
 function retract() {
-  gsap.to("#notification-card", {
-    x: "200%",
-    duration: 0.8,
+  const card = $("#notification-container");
+  gsap.to(card, {
+    y: "-150%",
+    duration: 0.6,
     ease: Expo.easeOut,
   });
 }
 
-function notify(messageArray) {
-  for (let message = 0; message < messageArray.length; message++) {
-    const element = messageArray[message];
-    $("#notification-card").append(`<h3>${element}</h3>`);
-  }
-  gsap.to("#notification-card", {
-    x: "0%",
-    duration: 0.8,
-    ease: Expo.easeOut,
-  });
-}
-
-$("#notification-card").click(() => {
+$("#notification-container").click(() => {
   retract();
 });
 
-function spinner(button, path) {
-  $(button).html(`<img src="${path}/Images/spinner-ball-ic.png" />`);
-  let imgElement = $(button).find("img");
+function popNotiCard(head, msg, ret) {
+  const card = $("#notification-container");
+  gsap.to(card, {
+    y: "0%",
+    duration: 0.6,
+    ease: Expo.easeOut,
+  });
+  $(".head").text(head);
+  $(".message").html(msg);
+
+  if (ret) {
+    setTimeout(() => {
+      retract();
+    }, 5000);
+  }
+}
+
+setInterval(() => {
+  if (!window.navigator.onLine) {
+    popNotiCard("Oops!", "Please check your internet connection.", false);
+  }
+}, 10000);
+
+setInterval(() => {
+  if (window.navigator.onLine) {
+    retract();
+  }
+}, 10000);
+
+function spinner(button) {
+  $(button).html(`<p>&#128191;</p>`);
+  let imgElement = $(button).find("p");
   gsap.to($(imgElement), {
     rotate: "-360deg",
     duration: 1,
@@ -66,7 +84,7 @@ $(".fee__month-item").click(function () {
 
 $("#login-form").submit(function (event) {
   event.preventDefault();
-  spinner($(".loginBtn"), "../../static");
+  spinner($(".loginBtn"));
   $.ajax({
     method: "POST",
     url: "/",
@@ -76,7 +94,7 @@ $("#login-form").submit(function (event) {
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },
     success: (response) => {
-      $(".loginBtn").html(`<p style="margin-right: 6px;">Logged in</p><img src="../../static/Images/success-ic.png" style="height: auto; max-width: 28px;" /> `);
+      $(".loginBtn").html(`<p style="margin-right: 6px;">Logged in &#128077;</p>`);
       setTimeout(() => {
         if (response) {
           window.location.replace("teach/selectClass/");
@@ -99,20 +117,19 @@ $(`input[name="username"], input[name="password"]`).on("change keyup paste", () 
   $(".login-error-container").css({ display: "none" });
 });
 
-$(".show-pass").click(function () {
+$(".visib-ic").click(function () {
   const inputFd = $(`input[name="password"]`);
   if (inputFd.attr("type") == "password") {
-    $(this).attr("src", "/static/Images/show-pass-ic.png");
+    $(this).html("<p>&#128584;</p>");
     inputFd.attr("type", "text");
   } else {
-    $(this).attr("src", "/static/Images/view-pass-ic.png");
+    $(this).html("<p>&#128053;</p>");
     inputFd.attr("type", "password");
   }
 });
 
 // Close AddStudent Panel
 $("#close-addStudent-panel-btn").click(function () {
-  console.log("Heyyoooo");
   let as_container = $("#addStudent-container");
   gsap
     .to("#addStud-wrapper", {
@@ -164,7 +181,7 @@ $("#addStudentForm").submit(function (event) {
   event.preventDefault();
   let submitBtn = $("#create-student-btn");
   // Start Animation
-  $(submitBtn).text("Creating...");
+  spinner(submitBtn);
   let gradeId = $(this).attr("data-gradeId");
   let formData = {
     admnNo: $(this).find(`input[name="admnNo"]`).val(),
@@ -187,17 +204,16 @@ $("#addStudentForm").submit(function (event) {
       csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
     },
     success: (response) => {
-      $(submitBtn).text("Student Created");
+      popNotiCard("Yay!", "<p>Student added. Hold on &#128524;</p>", true);
+      $(submitBtn).text("Add Student");
       setTimeout(() => {
         window.location.reload();
-      }, 1000);
+      }, 1800);
     },
     error: () => {
-      $(submitBtn).text("Oops, Something went wrong");
+      popNotiCard("Oooh!", "<p>Something went wrong! Our team is on the way &#128521;</p>", true);
       $(this).trigger("reset");
-      setTimeout(() => {
-        $(submitBtn).text(`Create Student`);
-      }, 2000);
+      $(submitBtn).text(`Create Student`);
     },
   });
 });
@@ -331,8 +347,8 @@ $(".edit-student-button").click(function () {
 $("#editStudentForm").submit(function (event) {
   event.preventDefault();
   const saveBtn = $(this).find("#save-student-btn");
+  spinner(saveBtn);
   const admno = saveBtn.attr("data-admnNo");
-  saveBtn.text("Saving...");
   $.ajax({
     method: "POST",
     url: `/teach/editStudent/${admno}/`,
@@ -352,13 +368,14 @@ $("#editStudentForm").submit(function (event) {
     },
     success: (res) => {
       if (res) {
-        saveBtn.text("Changes Saved...Refreshing!");
+        saveBtn.html("<p>&#128077;</p>");
         setTimeout(() => {
           window.location.reload();
         }, 1000);
       }
     },
     error: () => {
+      popNotiCard("Oops!", "<p>Something's not right! Our team is looking into it &#128519;</p>", true);
       saveBtn.text("Cannot save the changes right now!");
       setTimeout(() => {
         saveBtn.text("Save");

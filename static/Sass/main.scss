@@ -47,6 +47,43 @@
     }
   }
 }
+
+#notification-container {
+  padding: 1rem 1rem 1rem 0.8rem;
+  background-color: #1f1f1f;
+  border-radius: 6px;
+  color: white;
+  position: absolute;
+  z-index: 100;
+  right: 2%;
+  top: 5%;
+  width: auto;
+  max-width: 20%;
+  transform: translateY(-150%);
+  overflow: hidden;
+  perspective: 1000px;
+
+  img {
+    position: absolute;
+    width: 100%;
+    right: -25px;
+    top: -12px;
+    max-width: 58px;
+    height: auto;
+    margin-right: 6px;
+  }
+  .noti-wrapper {
+    h2 {
+      margin-bottom: 12px;
+      @include OpenSans(200);
+    }
+    p {
+      word-break: break-all;
+      @include OpenSans(100);
+    }
+  }
+}
+
 .active-toggle {
   background-color: $blue-gem;
   justify-content: flex-end;
@@ -238,10 +275,8 @@ body {
                 width: 100%;
                 @include button-secondary(12px 14px);
 
-                img {
-                  height: 100%;
-                  max-width: 28px;
-                  margin-bottom: 0px;
+                p {
+                  margin-left: 6px;
                 }
               }
             }
@@ -484,12 +519,11 @@ body {
         overflow: hidden;
         position: relative;
 
-        img {
+        p {
           position: absolute;
           left: 20px;
           top: 20px;
-          height: auto;
-          max-width: 46px;
+          font-size: 46px;
         }
         h2 {
           position: absolute;
@@ -527,8 +561,9 @@ body {
       color: white;
       overflow-y: scroll;
 
-      img {
+      .mark-ic {
         margin: 2rem 0rem;
+        font-size: 4.5rem;
       }
       #create-marksheet {
         width: 90%;
@@ -540,6 +575,10 @@ body {
           align-items: center;
           text-align: center;
 
+          .emp-ic {
+            margin-bottom: 12px;
+            font-size: 45px;
+          }
           .subjects {
             width: 100%;
 
@@ -704,8 +743,11 @@ body {
           justify-content: center;
           @include OpenSans(300);
 
+          p {
+            font-size: 4rem;
+          }
           h3 {
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: $text-color-dark;
             margin-top: 18px;
           }
@@ -949,6 +991,7 @@ body {
     align-items: center;
 
     .space-fill-icon {
+      font-size: 6rem;
       padding-bottom: 2rem;
     }
 
@@ -975,14 +1018,19 @@ body {
         display: flex;
         position: relative;
 
-        img {
+        button {
+          background-color: transparent;
+          width: auto;
+          padding: 4px;
           position: absolute;
           right: 12px;
-          top: 35%;
+          top: 25%;
           cursor: pointer;
-          width: 100%;
-          max-width: 24px;
-          height: auto;
+          font-size: 19px;
+
+          &:active {
+            background-color: transparent;
+          }
         }
       }
       label {
@@ -1135,6 +1183,10 @@ $breakpoint-mobile: 414px;
 }
 
 @media (max-width: $breakpoint-mobile) {
+  #notification-container {
+    max-width: 96%;
+  }
+
   #confirmation-box {
     bottom: -40%;
     padding: 2rem 1rem 1rem 2rem;

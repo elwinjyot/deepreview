@@ -9,7 +9,7 @@
   {% for grade in grades %}
   <a href="{% url 'Home' grade.id %}">
     <div class="class-card">
-      <img src="{% static 'Images/placeholder-ic.png' %}" alt="" />
+      <p>{{ emojiList|random }}</p>
       <h2>{{grade.className}}</h2>
     </div>
   </a>

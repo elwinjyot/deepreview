@@ -10,6 +10,13 @@
     <title>DeepReview</title>
   </head>
   <body>
+    <div id="notification-container">
+      <img src="{% static 'Images/noti-ic.png' %}" alt="" />
+      <div class="noti-wrapper">
+        <h2 class="head">Noti Head</h2>
+        <p class="message">Message comes here</p>
+      </div>
+    </div>
     <header id="site-navigation">{% block ul %} {% endblock %}</header>
     <main>{% block main %} {% endblock %}</main>
   </body>

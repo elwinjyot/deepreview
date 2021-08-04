@@ -56,7 +56,8 @@ def classSelect(request):
             gradeList.append(grade)
 
     context = {
-        'grades': gradeList
+        'grades': gradeList,
+        'emojiList': ["📒", "📓", "📔", "📕", "📗", "📘", "📙", "📚", "📷", "🏖", "🏔"]
     }
     return render(request=request, template_name='classSel.html', context=context)
 
