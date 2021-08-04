@@ -86,12 +86,28 @@ $("#login-form").submit(function (event) {
       }, 1000);
     },
     error: () => {
-      $(".loginBtn").html(`<p style="margin-right: 6px;">Password or username wrong!</p><img src="../../static/Images/error-ic.png" style="height: auto; max-width: 28px;" /> `);
-      setTimeout(() => {
-        $(".loginBtn").text(`Login`);
-      }, 2000);
+      $(".loginBtn").text(`Login`);
+      $(".login-error-container").css({ display: "flex" });
+      $(".login-error-container p").text(`Password or Email does not match!`);
+      $(`input[name="username"], input[name="password"]`).css({ "border-color": "#ec3a3a" });
     },
   });
+});
+
+$(`input[name="username"], input[name="password"]`).on("change keyup paste", () => {
+  $(`input[name="username"], input[name="password"]`).css({ "border-color": "#fc6e20" });
+  $(".login-error-container").css({ display: "none" });
+});
+
+$(".show-pass").click(function () {
+  const inputFd = $(`input[name="password"]`);
+  if (inputFd.attr("type") == "password") {
+    $(this).attr("src", "/static/Images/show-pass-ic.png");
+    inputFd.attr("type", "text");
+  } else {
+    $(this).attr("src", "/static/Images/view-pass-ic.png");
+    inputFd.attr("type", "password");
+  }
 });
 
 // Close AddStudent Panel

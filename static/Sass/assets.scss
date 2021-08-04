@@ -101,11 +101,9 @@ $shamrock: #25d5a6;
 @mixin input-dark() {
   padding: 14px 12px;
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 3px solid $blue-gem;
-  background-color: $white-smoke;
-  @include OpenSans(100);
+  background-color: #f0f0f0;
+  border: 2.8px solid $blue-gem;
+  border-radius: 4px;
 
   &:focus {
     outline: none;

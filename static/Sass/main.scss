@@ -907,11 +907,45 @@ body {
     .space-fill-icon {
       padding-bottom: 2rem;
     }
+
+    .login-error-container {
+      color: #ec3a3a;
+      @include OpenSans(200);
+      display: none;
+      align-items: center;
+      width: 70%;
+
+      img {
+        margin-right: 6px;
+        width: 100%;
+        height: auto;
+        max-width: 18px;
+      }
+    }
     .input-group {
       width: 70%;
       padding: 12px 0px;
 
+      .pass-group {
+        display: flex;
+        position: relative;
+
+        img {
+          position: absolute;
+          right: 12px;
+          top: 35%;
+          cursor: pointer;
+          width: 100%;
+          max-width: 24px;
+          height: auto;
+        }
+      }
+      label {
+        color: white;
+        @include OpenSans(100);
+      }
       input {
+        margin-top: 6px;
         @include input-dark();
       }
       button {
@@ -926,9 +960,15 @@ body {
           max-width: 28px;
         }
       }
-      .craccbtn {
-        background-color: transparent;
-        border: 2.4px solid $blue-gem;
+    }
+    .craccbtn {
+      display: flex;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        color: white;
+        @include OpenSans(100);
       }
     }
     .tip-wrap {
@@ -1141,6 +1181,9 @@ $breakpoint-mobile: 414px;
       width: 85%;
 
       .input-group {
+        width: 100%;
+      }
+      .login-error-container {
         width: 100%;
       }
     }

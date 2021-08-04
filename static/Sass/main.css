@@ -487,12 +487,9 @@ body main #addStudent-container #addStud-wrapper #addStudentForm .input-group in
 body main #addStudent-container #addStud-wrapper #editStudentForm .input-group input {
   padding: 14px 12px;
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 3px solid #fc6e20;
-  background-color: #f3f3f3;
-  font-family: OpenSans;
-  font-weight: 100;
+  background-color: #f0f0f0;
+  border: 2.8px solid #fc6e20;
+  border-radius: 4px;
 }
 
 body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input:focus,
@@ -505,12 +502,9 @@ body main #addStudent-container #addStud-wrapper #editStudentForm .input-group t
   resize: none;
   padding: 14px 12px;
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 3px solid #fc6e20;
-  background-color: #f3f3f3;
-  font-family: OpenSans;
-  font-weight: 100;
+  background-color: #f0f0f0;
+  border: 2.8px solid #fc6e20;
+  border-radius: 4px;
 }
 
 body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea:focus,
@@ -946,12 +940,9 @@ body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .fo
   width: 50%;
   padding: 14px 12px;
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 3px solid #fc6e20;
-  background-color: #f3f3f3;
-  font-family: OpenSans;
-  font-weight: 100;
+  background-color: #f0f0f0;
+  border: 2.8px solid #fc6e20;
+  border-radius: 4px;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input:focus {
@@ -1599,20 +1590,59 @@ body #student-details-container #fee-info ul li {
   padding-bottom: 2rem;
 }
 
+#login-body #login-form .login-error-container {
+  color: #ec3a3a;
+  font-family: OpenSans;
+  font-weight: 200;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+}
+
+#login-body #login-form .login-error-container img {
+  margin-right: 6px;
+  width: 100%;
+  height: auto;
+  max-width: 18px;
+}
+
 #login-body #login-form .input-group {
   width: 70%;
   padding: 12px 0px;
 }
 
-#login-body #login-form .input-group input {
-  padding: 14px 12px;
+#login-body #login-form .input-group .pass-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+#login-body #login-form .input-group .pass-group img {
+  position: absolute;
+  right: 12px;
+  top: 35%;
+  cursor: pointer;
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 3px solid #fc6e20;
-  background-color: #f3f3f3;
+  max-width: 24px;
+  height: auto;
+}
+
+#login-body #login-form .input-group label {
+  color: white;
   font-family: OpenSans;
   font-weight: 100;
+}
+
+#login-body #login-form .input-group input {
+  margin-top: 6px;
+  padding: 14px 12px;
+  width: 100%;
+  background-color: #f0f0f0;
+  border: 2.8px solid #fc6e20;
+  border-radius: 4px;
 }
 
 #login-body #login-form .input-group input:focus {
@@ -1654,9 +1684,20 @@ body #student-details-container #fee-info ul li {
   max-width: 28px;
 }
 
-#login-body #login-form .input-group .craccbtn {
-  background-color: transparent;
-  border: 2.4px solid #fc6e20;
+#login-body #login-form .craccbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#login-body #login-form .craccbtn a {
+  text-decoration: none;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 100;
 }
 
 #login-body #login-form .tip-wrap {
@@ -1846,6 +1887,9 @@ body #student-details-container #fee-info ul li {
     width: 85%;
   }
   #login-body #login-form .input-group {
+    width: 100%;
+  }
+  #login-body #login-form .login-error-container {
     width: 100%;
   }
   .fourOthreeBody h1 {
