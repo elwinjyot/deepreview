@@ -13,18 +13,20 @@ from .tools import *
 @login_required(login_url='/')
 @allowed_users(allowed_roles=["staff"])
 def home(request, gradeId):
-    grade = Grade.objects.get(id=gradeId)
-    students = grade.students.all().order_by('name')
+    try:
+        grade = Grade.objects.get(id=gradeId)
+        students = grade.students.all().order_by('name')
 
-    context = {
-        'grade': gradeId,
-        'className': grade.className,
-        'students': students,
-        'strength': len(students),
-        'admin': grade.class_teacher
-    }
-    return render(request=request, template_name='home.html', context=context)
-
+        context = {
+            'grade': gradeId,
+            'className': grade.className,
+            'students': students,
+            'strength': len(students),
+            'admin': grade.class_teacher
+        }
+        return render(request=request, template_name='home.html', context=context)
+    except Exception as e:
+        print(e)
 
 @allowed_users(allowed_roles=["staff"])
 def studentDetailView(request, gradeId, id):
