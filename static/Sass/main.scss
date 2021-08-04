@@ -10,10 +10,10 @@
   }
   .select-option-group {
     position: relative;
-    width: 50%;
+    width: 100%;
 
     .drop-btn-div {
-      width: 24%;
+      width: 16%;
       height: 100%;
       z-index: 8;
       background-color: $blue-gem;
@@ -25,6 +25,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      border-radius: 0px 4px 4px 0px;
 
       img {
         height: auto;
@@ -34,13 +35,13 @@
     }
     select {
       width: 100%;
-      background-color: $white-smoke;
-      border: none;
-      border-radius: 0px;
+      background-color: transparent;
+      color: #e6e6e6;
+      border: 2.4px solid $blue-gem;
+      border-radius: 4px;
       border-bottom: 3px solid $blue-gem;
       padding: 10px 12px;
       @include OpenSans(100);
-      color: $text-color-dark;
       position: relative;
       cursor: pointer;
     }
@@ -216,45 +217,77 @@ body {
         }
         #addStudentForm,
         #editStudentForm {
-          padding: 2.5rem 0rem;
+          padding-top: 2.5rem;
           display: flex;
           flex-direction: column;
           align-items: center;
           width: 90%;
 
-          .remark-inp {
-            grid-column-start: 1;
-            grid-column-end: 3;
-          }
-          .cancel-grp {
-            button {
-              width: 100%;
-              @include button-hollow(12px 14px);
-            }
-          }
-          .input-group {
-            width: 100%;
-            padding: 6px 0px;
+          .cta-sect {
+            margin-bottom: 0px;
 
-            button[type="submit"] {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 100%;
-              @include button-secondary(12px 14px);
+            .input-group {
+              button[type="button"] {
+                background-color: transparent;
+                border: 2.8px solid $blue-gem;
+              }
+              button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                @include button-secondary(12px 14px);
 
-              img {
-                height: 100%;
-                max-width: 28px;
-                margin-bottom: 0px;
+                img {
+                  height: 100%;
+                  max-width: 28px;
+                  margin-bottom: 0px;
+                }
               }
             }
-            input {
-              @include input-dark();
+          }
+          .sep {
+            margin-bottom: 24px;
+            width: 100%;
+
+            h2 {
+              margin-bottom: 6px;
+              color: white;
+              @include OpenSans(200);
             }
-            textarea {
-              resize: none;
-              @include input-dark();
+
+            .input-group {
+              width: 100%;
+              padding: 12px 0px;
+              position: relative;
+
+              label {
+                color: white;
+                @include OpenSans(200);
+                position: absolute;
+                top: 0px;
+                left: 12px;
+                z-index: 9;
+                background-color: $licorice;
+                padding: 0px 12px;
+              }
+
+              input {
+                @include input-dark();
+
+                &::placeholder {
+                  @include OpenSans(100);
+                }
+              }
+              textarea {
+                resize: none;
+                @include OpenSans(200);
+                @include input-dark();
+
+                &::placeholder {
+                  @include OpenSans(100);
+                }
+              }
             }
           }
         }
@@ -513,24 +546,23 @@ body {
             .subject-tab {
               padding: 12px 0px;
               width: 100%;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+              display: grid;
+              grid-template-columns: 70% 30%;
+              column-gap: 12px;
 
               .input-group {
                 padding: 0px;
-                width: 70%;
+                width: 100%;
                 .select-option-group {
                   width: 100%;
                 }
               }
               input {
-                width: 50%;
+                width: 100%;
                 @include input-dark();
 
-                &:last-child {
-                  width: 20%;
-                  margin-left: 12px;
+                &::last-child {
+                  text-align: right;
                 }
               }
             }
@@ -556,8 +588,19 @@ body {
           }
         }
         .input-group {
-          padding: 8px 0px;
+          padding: 12px 0px;
+          position: relative;
 
+          label {
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            color: white;
+            background-color: $licorice;
+            padding: 0px 12px;
+            @include OpenSans(200);
+            z-index: 9;
+          }
           button {
             width: 100%;
             @include button-secondary(14px 12px);
@@ -926,6 +969,7 @@ body {
     .input-group {
       width: 70%;
       padding: 12px 0px;
+      position: relative;
 
       .pass-group {
         display: flex;
@@ -942,8 +986,14 @@ body {
         }
       }
       label {
+        position: absolute;
+        padding: 0px 8px;
+        top: 6px;
+        left: 12px;
+        background-color: $licorice;
         color: white;
-        @include OpenSans(100);
+        z-index: 9;
+        @include OpenSans(200);
       }
       input {
         margin-top: 6px;

@@ -15,65 +15,82 @@
 {% block main %}
 <section id="addStudent-container">
   <div id="addStud-wrapper">
-    <img class="place-ic" src="{% static 'Images/addStud-ic.png' %}" alt="" />
     <form id="editStudentForm" data-gradeId="{{grade}}">
       {% csrf_token %}
-      <div class="input-group">
-        <input autocomplete="off" required type="number" min="0" value="{{student.admnNo}}" name="admnNo" placeholder="Admission Number" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" required type="text" name="name" value="{{student.name}}" placeholder="Full Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="father" value="{{student.fathersName}}" placeholder="Father's Name/Guardian's Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" value="{{student.mothersName}}" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="guardian" placeholder="Guardian's Name" value="{{student.guardiansName}}" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="dob" value="{{student.dateOfBirth}}" placeholder="Date of Birth" />
-      </div>
-      <div class="input-group gender-grp">
-        <p>Gender</p>
-        <div class="select-option-group">
-          <div class="drop-btn-div">
-            <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
-          </div>
-          <select name="gender">
-            {% if student.gender == "Male" %}
-            <option value="Male" selected>Male</option>
-            {% else %}
-            <option value="Male">Male</option>
-            {% endif %}
-            {% if student.gender == "Female" %}
-            <option value="Female" selected>Female</option>
-            {% else %}
-            <option value="Female">Female</option>
-            {% endif %}
-          </select>
+      <section class="sep">
+        <h2>Personal Details</h2>
+        <div class="input-group">
+          <label>Admission Number</label>
+          <input autocomplete="off" required type="number" min="0" value="{{student.admnNo}}" name="admnNo" placeholder="eg: 4814" />
         </div>
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="number" name="adNo" min="0" value="{{student.aadharNumber}}" placeholder="Aadhar Number" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="address" placeholder="Address" value="{{student.address}}" />
-      </div>
-      <div class="input-group remark-inp">
-        <textarea name="remarks" placeholder="Remarks" cols="30" maxlength="300" rows="5">{{student.remarks}}</textarea>
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="attdn" placeholder="Attendance" value="{{student.attendance}}" />
-      </div>
-      <div class="input-group">
-        <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save</button>
-      </div>
-      <div class="input-group cancel-grp">
-        <button type="button" id="close-addStudent-panel-btn">Cancel</button>
-      </div>
+        <div class="input-group">
+          <label>Full Name</label>
+          <input autocomplete="off" required type="text" name="name" placeholder="eg: John Smith" value="{{student.name}}" />
+        </div>
+        <div class="input-group">
+          <label>Date of Birth</label>
+          <input autocomplete="off" type="text" name="dob" placeholder="eg: 02-04-2004" value="{{student.dateOfBirth}}" />
+        </div>
+        <div class="input-group gender-grp">
+          <label>Gender</label>
+          <div class="select-option-group">
+            <div class="drop-btn-div">
+              <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
+            </div>
+            <select name="gender">
+              {% if student.gender == 'Male' %}
+              <option value="Male" selected>Male</option>
+              <option value="Female">Female</option>
+              {% else %}
+              <option value="Male">Male</option>
+              <option value="Female" selected>Female</option>
+              {% endif %}
+            </select>
+          </div>
+        </div>
+      </section>
+      <section class="sep">
+        <h2>Parent's Details</h2>
+        <div class="input-group">
+          <label>Father's Name</label>
+          <input autocomplete="off" type="text" name="father" placeholder="eg: Jeremy Smith" value="{{student.fathersName}}" />
+        </div>
+        <div class="input-group">
+          <label>Mother's Name</label>
+          <input autocomplete="off" type="text" name="mother" placeholder="eg: Sarah Smith" value="{{student.mothersName}}" />
+        </div>
+        <div class="input-group">
+          <label>Guardian's Name</label>
+          <input autocomplete="off" type="text" name="guardian" placeholder="eg: Miles Smith" value="{{student.guardiansName}}"/>
+        </div>
+      </section>
+      <section class="sep">
+        <h2>Others</h2>
+        <div class="input-group">
+          <label>Aadhar Number</label>
+          <input autocomplete="off" id="aadhar" type="tel" inputmode="numeric" minlength="14" name="adNo" value="{{student.aadharNumber}}" placeholder="xxxx xxxx xxxx" maxlength="14" />
+        </div>
+        <div class="input-group">
+          <label>Address</label>
+          <input autocomplete="off" type="text" name="address" placeholder="eg: House No - 26, Baker Street" value="{{student.address}}" />
+        </div>
+        <div class="input-group remark-inp">
+          <label>Remarks</label>
+          <textarea name="remarks" placeholder="Your review about the student" cols="30" maxlength="300" rows="5">{{student.remarks}}</textarea>
+        </div>
+        <div class="input-group">
+          <label>Attendance</label>
+          <input autocomplete="off" type="text" name="attdn" placeholder="eg: 28/50" value="{{student.attendance}}" />
+        </div>
+      </section>
+      <section class="sep cta-sect">
+        <div class="input-group">
+          <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save Student</button>
+        </div>
+        <div class="input-group cancel-grp">
+          <button type="button" id="close-addStudent-panel-btn">Cancel</button>
+        </div>
+      </section>
     </form>
   </div>
 </section>
@@ -83,7 +100,7 @@
     <form id="create-marksheet">
       {% csrf_token %}
       <div class="input-group gender-grp">
-        <p>Test Format</p>
+        <label>Test Format</label>
         <div class="select-option-group">
           <div class="drop-btn-div">
             <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
@@ -96,7 +113,7 @@
         </div>
       </div>
       <div class="input-group gender-grp title-drop">
-        <p>Exam Title</p>
+        <label>Exam Title</label>
         <div class="select-option-group">
           <div class="drop-btn-div">
             <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
@@ -263,6 +280,14 @@
     </div>
   </section>
 </section>
+<script>
+  document.getElementById("aadhar").addEventListener("input", function (e) {
+    e.target.value = e.target.value
+      .replace(/[^\dA-Z]/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
+  });
+</script>
 {% endblock %}
 
 {% block scripts %}

@@ -36,11 +36,11 @@
 
 .gender-grp .select-option-group {
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
 .gender-grp .select-option-group .drop-btn-div {
-  width: 24%;
+  width: 16%;
   height: 100%;
   z-index: 8;
   background-color: #fc6e20;
@@ -58,6 +58,7 @@
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .gender-grp .select-option-group .drop-btn-div img {
@@ -68,14 +69,14 @@
 
 .gender-grp .select-option-group select {
   width: 100%;
-  background-color: #f3f3f3;
-  border: none;
-  border-radius: 0px;
+  background-color: transparent;
+  color: #e6e6e6;
+  border: 2.4px solid #fc6e20;
+  border-radius: 4px;
   border-bottom: 3px solid #fc6e20;
   padding: 10px 12px;
   font-family: OpenSans;
   font-weight: 100;
-  color: #333;
   position: relative;
   cursor: pointer;
 }
@@ -392,7 +393,7 @@ body main #addStudent-container #addStud-wrapper .place-ic {
 
 body main #addStudent-container #addStud-wrapper #addStudentForm,
 body main #addStudent-container #addStud-wrapper #editStudentForm {
-  padding: 2.5rem 0rem;
+  padding-top: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -406,45 +407,19 @@ body main #addStudent-container #addStud-wrapper #editStudentForm {
   width: 90%;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .remark-inp,
-body main #addStudent-container #addStud-wrapper #editStudentForm .remark-inp {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 3;
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect {
+  margin-bottom: 0px;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button,
-body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button {
-  width: 100%;
-  padding: 12px 14px;
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button[type="button"],
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button[type="button"] {
   background-color: transparent;
-  color: white;
-  font-family: OpenSans;
-  font-weight: 100;
-  border: 3px solid #fc6e20;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
+  border: 2.8px solid #fc6e20;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:focus,
-body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button:focus {
-  outline: none;
-}
-
-body main #addStudent-container #addStud-wrapper #addStudentForm .cancel-grp button:active,
-body main #addStudent-container #addStud-wrapper #editStudentForm .cancel-grp button:active {
-  background-color: #da5812da !important;
-}
-
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group {
-  width: 100%;
-  padding: 6px 0px;
-}
-
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"],
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"] {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -466,50 +441,136 @@ body main #addStudent-container #addStud-wrapper #editStudentForm .input-group b
   font-size: 1em;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:focus,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"]:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button:focus {
   outline: none;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"]:active,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"]:active {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button:active,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button:active {
   background-color: #da5812;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group button[type="submit"] img,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group button[type="submit"] img {
+body main #addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button img,
+body main #addStudent-container #addStud-wrapper #editStudentForm .cta-sect .input-group button img {
   height: 100%;
   max-width: 28px;
   margin-bottom: 0px;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group input {
-  padding: 14px 12px;
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep {
+  margin-bottom: 24px;
   width: 100%;
-  background-color: #f0f0f0;
-  border: 2.8px solid #fc6e20;
-  border-radius: 4px;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group input:focus,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group input:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep h2,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep h2 {
+  margin-bottom: 6px;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group {
+  width: 100%;
+  padding: 12px 0px;
+  position: relative;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group label,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group label {
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  z-index: 9;
+  background-color: #323232;
+  padding: 0px 12px;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input {
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #fc6e20;
+  border-radius: 4px;
+  color: #e6e6e6;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input:focus {
   outline: none;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group textarea {
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::-webkit-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input:-ms-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::-ms-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group input::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea {
   resize: none;
+  font-family: OpenSans;
+  font-weight: 200;
   padding: 14px 12px;
   width: 100%;
-  background-color: #f0f0f0;
-  border: 2.8px solid #fc6e20;
+  background-color: transparent;
+  border: 2.4px solid #fc6e20;
   border-radius: 4px;
+  color: #e6e6e6;
 }
 
-body main #addStudent-container #addStud-wrapper #addStudentForm .input-group textarea:focus,
-body main #addStudent-container #addStud-wrapper #editStudentForm .input-group textarea:focus {
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea:focus,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea:focus {
   outline: none;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::-webkit-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea:-ms-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::-ms-input-placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+body main #addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::placeholder,
+body main #addStudent-container #addStud-wrapper #editStudentForm .sep .input-group textarea::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
 }
 
 body main #class-details {
@@ -916,20 +977,17 @@ body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .fo
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab {
   padding: 12px 0px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 30%;
+      grid-template-columns: 70% 30%;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab .input-group {
   padding: 0px;
-  width: 70%;
+  width: 100%;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab .input-group .select-option-group {
@@ -937,21 +995,21 @@ body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .fo
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input {
-  width: 50%;
+  width: 100%;
   padding: 14px 12px;
   width: 100%;
-  background-color: #f0f0f0;
-  border: 2.8px solid #fc6e20;
+  background-color: transparent;
+  border: 2.4px solid #fc6e20;
   border-radius: 4px;
+  color: #e6e6e6;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input:focus {
   outline: none;
 }
 
-body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input:last-child {
-  width: 20%;
-  margin-left: 12px;
+body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input::last-child {
+  text-align: right;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar {
@@ -1001,7 +1059,20 @@ body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .fo
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group {
-  padding: 8px 0px;
+  padding: 12px 0px;
+  position: relative;
+}
+
+body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group label {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  color: white;
+  background-color: #323232;
+  padding: 0px 12px;
+  font-family: OpenSans;
+  font-weight: 200;
+  z-index: 9;
 }
 
 body #create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group button {
@@ -1612,6 +1683,7 @@ body #student-details-container #fee-info ul li {
 #login-body #login-form .input-group {
   width: 70%;
   padding: 12px 0px;
+  position: relative;
 }
 
 #login-body #login-form .input-group .pass-group {
@@ -1632,18 +1704,25 @@ body #student-details-container #fee-info ul li {
 }
 
 #login-body #login-form .input-group label {
+  position: absolute;
+  padding: 0px 8px;
+  top: 6px;
+  left: 12px;
+  background-color: #323232;
   color: white;
+  z-index: 9;
   font-family: OpenSans;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 #login-body #login-form .input-group input {
   margin-top: 6px;
   padding: 14px 12px;
   width: 100%;
-  background-color: #f0f0f0;
-  border: 2.8px solid #fc6e20;
+  background-color: transparent;
+  border: 2.4px solid #fc6e20;
   border-radius: 4px;
+  color: #e6e6e6;
 }
 
 #login-body #login-form .input-group input:focus {

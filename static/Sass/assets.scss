@@ -101,9 +101,10 @@ $shamrock: #25d5a6;
 @mixin input-dark() {
   padding: 14px 12px;
   width: 100%;
-  background-color: #f0f0f0;
-  border: 2.8px solid $blue-gem;
+  background-color: transparent;
+  border: 2.4px solid $blue-gem;
   border-radius: 4px;
+  color: #e6e6e6;
 
   &:focus {
     outline: none;

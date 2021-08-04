@@ -12,57 +12,78 @@
 
 <section id="addStudent-container">
   <div id="addStud-wrapper">
-    <img class="place-ic" src="{% static 'Images/addStud-ic.png' %}" alt="" />
     <form id="addStudentForm" data-gradeId="{{grade}}">
       {% csrf_token %}
-      <div class="input-group">
-        <input autocomplete="off" required type="number" min="0" name="admnNo" placeholder="Admission Number" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" required type="text" name="name" placeholder="Full Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="father" placeholder="Father's Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="mother" placeholder="Mother's Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="guardian" placeholder="Guardian's Name" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="dob" placeholder="Date of Birth" />
-      </div>
-      <div class="input-group gender-grp">
-        <p>Gender</p>
-        <div class="select-option-group">
-          <div class="drop-btn-div">
-            <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
-          </div>
-          <select name="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
+      <section class="sep">
+        <h2>Personal Details</h2>
+        <div class="input-group">
+          <label>Admission Number</label>
+          <input autocomplete="off" required type="number" min="0" name="admnNo" placeholder="eg: 4814" />
         </div>
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="number" name="adNo" min="0" placeholder="Aadhar Number" />
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="address" placeholder="Address" />
-      </div>
-      <div class="input-group remark-inp">
-        <textarea name="remarks" placeholder="Remarks" cols="30" maxlength="300" rows="5"></textarea>
-      </div>
-      <div class="input-group">
-        <input autocomplete="off" type="text" name="attdn" placeholder="Attendance" />
-      </div>
-      <div class="input-group">
-        <button type="submit" id="create-student-btn">Create Student</button>
-      </div>
-      <div class="input-group cancel-grp">
-        <button type="button" id="close-addStudent-panel-btn">Cancel</button>
-      </div>
+        <div class="input-group">
+          <label>Full Name</label>
+          <input autocomplete="off" required type="text" name="name" placeholder="eg: John Smith" />
+        </div>
+        <div class="input-group">
+          <label>Date of Birth</label>
+          <input autocomplete="off" type="text" name="dob" placeholder="eg: 02-04-2004" />
+        </div>
+        <div class="input-group gender-grp">
+          <label>Gender</label>
+          <div class="select-option-group">
+            <div class="drop-btn-div">
+              <img src="{% static 'Images/dropdownarrow-ic.png' %}" alt="" />
+            </div>
+            <select name="gender">
+              <option value="None" selected>Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <section class="sep">
+        <h2>Parent's Details</h2>
+        <div class="input-group">
+          <label>Father's Name</label>
+          <input autocomplete="off" type="text" name="father" placeholder="eg: Jeremy Smith" />
+        </div>
+        <div class="input-group">
+          <label>Mother's Name</label>
+          <input autocomplete="off" type="text" name="mother" placeholder="eg: Sarah Smith" />
+        </div>
+        <div class="input-group">
+          <label>Guardian's Name</label>
+          <input autocomplete="off" type="text" name="guardian" placeholder="eg: Miles Smith" />
+        </div>
+      </section>
+      <section class="sep">
+        <h2>Others</h2>
+        <div class="input-group">
+          <label>Aadhar Number</label>
+          <input autocomplete="off" id="aadhar" type="tel" inputmode="numeric" minlength="14" name="adNo" placeholder="xxxx xxxx xxxx" maxlength="14" />
+        </div>
+        <div class="input-group">
+          <label>Address</label>
+          <input autocomplete="off" type="text" name="address" placeholder="eg: House No - 26, Baker Street" />
+        </div>
+        <div class="input-group remark-inp">
+          <label>Remarks</label>
+          <textarea name="remarks" placeholder="Your review about the student" cols="30" maxlength="300" rows="5"></textarea>
+        </div>
+        <div class="input-group">
+          <label>Attendance</label>
+          <input autocomplete="off" type="text" name="attdn" placeholder="eg: 28/50" />
+        </div>
+      </section>
+      <section class="sep cta-sect">
+        <div class="input-group">
+          <button type="submit" id="create-student-btn">Create Student</button>
+        </div>
+        <div class="input-group cancel-grp">
+          <button type="button" id="close-addStudent-panel-btn">Cancel</button>
+        </div>
+      </section>
     </form>
   </div>
 </section>
@@ -102,4 +123,12 @@
     </div>
   </div>
 </section>
+<script>
+  document.getElementById("aadhar").addEventListener("input", function (e) {
+    e.target.value = e.target.value
+      .replace(/[^\dA-Z]/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
+  });
+</script>
 {% endblock %}
