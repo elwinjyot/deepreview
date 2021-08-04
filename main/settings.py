@@ -17,6 +17,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['deepreview.herokuapp.com', 'localhost', '127.0.0.1']
 
+ADMINS = [('Elwin Jyothis', 'elwinjyothisr444@gmail.com')]
 
 # Application definition
 
