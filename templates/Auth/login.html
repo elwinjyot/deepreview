@@ -10,41 +10,71 @@
     <title>Login</title>
   </head>
   <body id="login-body">
-    <form id="login-form">
-      {% csrf_token %}
-      <div class="space-fill-icon">
-        <p>&#127957;</p>
-      </div>
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" placeholder="eg:johndoe24" name="username" autocomplete="off" />
-      </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <div class="pass-group">
-          <input type="password" placeholder="Your password here" name="password" />
-          <button type="button" class="visib-ic"><p>&#128053;</p></button>
+    <main id="loginMain">
+      <form id="login-form">
+        {% csrf_token %}
+        <div class="space-fill-icon">
+          <!-- <p>&#127957;</p> -->
+          <img src="{% static 'Images/login-ic.png' %}" alt="" />
+        </div>
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" placeholder="eg:johndoe24" name="username" autocomplete="off" />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="pass-group">
+            <input type="password" placeholder="Your password here" name="password" />
+            <button type="button" class="visib-ic"><p>&#128053;</p></button>
+          </div>
+        </div>
+        <div class="login-error-container">
+          <img src="{% static 'Images/info-ic.png' %}" alt="" />
+          <p></p>
+        </div>
+        <div class="input-group">
+          <button type="submit" class="loginBtn">
+            <p>Login</p>
+          </button>
+        </div>
+        <div class="input-group craccbtn">
+          <a href="#">Create Account</a>
+        </div>
+        <div class="tip-wrap">
+          <p>Did you know?</p>
+          <p>{{tip}}</p>
+        </div>
+      </form>
+    </main>
+    <footer class="global-footer">
+      <div class="left">
+        <div class="sect">
+          <h1 id="logo">DeepReview</h1>
+          <p>
+            Developed, Designed and Managed by Elwin Jyothis <br />
+            Illustration by <a href="https://icons8.com/illustrations/author/5eb2a7bd01d0360019f124e7">Olha Khomich</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
+          </p>
+        </div>
+        <div class="sect">
+          <h3>Contact</h3>
+          <p>&#128231; elwinjyothisr444@gmail.com</p>
+          <p>&#128241; +91 9315450389</p>
+        </div>
+        <div class="sect">
+          <h3>Social</h3>
+          <div class="soc-ics">
+            <a href="https://www.instagram.com/e_l_j_y_o"><img src="{% static 'Images/ig-ic.png' %}" alt="" /></a><a href=""><img src="{% static 'Images/twitter-ic.png' %}" alt="" /></a>
+          </div>
+          <p>Made in India 🇮🇳</p>
+          <p class="cori">Copyright &#9400; 2021 All Rights Reserved</p>
         </div>
       </div>
-      <div class="login-error-container">
-        <img src="{% static 'Images/info-ic.png' %}" alt="" />
-        <p></p>
+      <div class="right">
+        <img src="{% static 'Images/shop-ic.png' %}" alt="" />
       </div>
-      <div class="input-group">
-        <button type="submit" class="loginBtn">
-          <p>Login</p>
-        </button>
-      </div>
-      <div class="input-group craccbtn">
-        <a href="#">Create Account</a>
-      </div>
-      <div class="tip-wrap">
-        <p>Did you know?</p>
-        <p>{{tip}}</p>
-      </div>
-    </form>
-    <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
-    <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
-    <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
+    </footer>
   </body>
+  <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
 </html>

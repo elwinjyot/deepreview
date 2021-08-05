@@ -96,7 +96,8 @@
 </section>
 <section id="create-marksheet-container">
   <section id="create-marksheet-wrapper">
-    <p class="mark-ic">&#128203;</p>
+    <!-- <p class="mark-ic">&#128203;</p> -->
+    <img class="emp-space-fill" src="{% static 'Images/space-ic.png' %}" alt="">
     <form id="create-marksheet">
       {% csrf_token %}
       <div class="input-group gender-grp">
@@ -171,7 +172,8 @@
     <section id="marksheet">
       {% if marksheet|length == 0 %}
       <div class="empty-message">
-        <p>&#128451;</p>
+        <!-- <p>&#128451;</p> -->
+        <img src="{% static 'Images/empty-ic.png' %}" alt="">
         <h3>Marksheet not prepared!</h3>
         <button class="cr-marksheet" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" >Create Marksheet</button>
       </div>

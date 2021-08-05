@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import django_heroku
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,8 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(8cxd()$wohi!e^b-m7m&hg!-#sc^pg)(q4h73qt9+nh9f5#8('
 
+load_dotenv()
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['deepreview.herokuapp.com', 'localhost', '127.0.0.1']
 
