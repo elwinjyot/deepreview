@@ -65,10 +65,10 @@ $(".fee__month-item").click(function () {
     },
     success: () => {
       if (requiredData.currState === "True") {
-        $(this).css({ "border-bottom-color": "#d52525" });
+        $(this).css({ "background-color": "#d52525" });
         $(this).attr("data-state", "False");
       } else {
-        $(this).css({ "border-bottom-color": "#25d5a6" });
+        $(this).css({ "background-color": "#1ab48b" });
         $(this).attr("data-state", "True");
       }
     },
@@ -106,14 +106,14 @@ $("#login-form").submit(function (event) {
     error: () => {
       $(".loginBtn").text(`Login`);
       $(".login-error-container").css({ display: "flex" });
-      $(".login-error-container p").text(`Password or Email does not match!`);
-      $(`input[name="username"], input[name="password"]`).css({ "border-color": "#ec3a3a" });
+      $(".login-error-container p").text(`Username or Password is not correct!`);
+      $(`input[name="username"], input[name="password"]`).css({ "border-color": "#d52525" });
     },
   });
 });
 
 $(`input[name="username"], input[name="password"]`).on("change keyup paste", () => {
-  $(`input[name="username"], input[name="password"]`).css({ "border-color": "#fc6e20" });
+  $(`input[name="username"], input[name="password"]`).css({ "border-color": "#3456ff" });
   $(".login-error-container").css({ display: "none" });
 });
 

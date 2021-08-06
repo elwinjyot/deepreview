@@ -25,7 +25,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      border-radius: 0px 4px 4px 0px;
+      border-radius: 0px 12px 12px 0px;
 
       img {
         height: auto;
@@ -38,7 +38,7 @@
       background-color: transparent;
       color: #e6e6e6;
       border: 2.4px solid $blue-gem;
-      border-radius: 4px;
+      border-radius: 12px;
       border-bottom: 3px solid $blue-gem;
       padding: 10px 12px;
       @include OpenSans(100);
@@ -61,7 +61,7 @@
   max-width: 20%;
   transform: translateY(-150%);
   overflow: hidden;
-  perspective: 1000px;
+  cursor: pointer;
 
   img {
     position: absolute;
@@ -113,7 +113,7 @@
   }
   button {
     margin-top: 2rem;
-    @include button-secondary(12px 3rem);
+    @include button-primary(12px 3rem);
   }
 }
 
@@ -140,7 +140,7 @@
 
     button {
       background-color: #d52525 !important;
-      @include button-secondary(12px 0px);
+      @include button-primary(12px 0px);
 
       &:first-child {
         background-color: transparent !important;
@@ -182,8 +182,20 @@
     width: 90%;
 
     #logo {
+      display: flex;
+      align-items: center;
       margin-bottom: 2rem;
-      font-size: 36px;
+
+      h2 {
+        font-size: 36px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 4rem;
+        margin-right: 12px;
+      }
     }
     .sect {
       margin-bottom: 24px;
@@ -244,22 +256,10 @@ body {
       display: flex;
       justify-content: space-between;
       padding: 12px 14px;
-      border-radius: 6px;
-      background-color: $blue-gem;
+      border-radius: 18px;
       list-style-type: none;
+      background-color: white;
 
-      #search-bar {
-        display: flex;
-        align-items: center;
-        position: relative;
-        width: 30%;
-        min-width: 20%;
-
-        input {
-          width: 100%;
-          @include input-hollow(8px 14px);
-        }
-      }
       .other-btns {
         width: 100%;
         display: flex;
@@ -340,7 +340,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-                @include button-secondary(12px 14px);
+                @include button-primary(12px 14px);
 
                 p {
                   margin-left: 6px;
@@ -403,7 +403,7 @@ body {
       color: $text-color-dark;
 
       div {
-        border-radius: 6px;
+        border-radius: 18px;
       }
       .class-teacher-details {
         width: 35%;
@@ -438,7 +438,7 @@ body {
             .state-bar {
               width: 70%;
               height: inherit;
-              background-color: $shamrock;
+              background-color: #1ab48b;
             }
           }
         }
@@ -459,7 +459,7 @@ body {
           margin-bottom: 18px;
 
           h2 {
-            @include OpenSans(200);
+            @include OpenSans(300);
           }
           .student-list-control-panel {
             display: flex;
@@ -506,19 +506,21 @@ body {
                 height: auto;
                 max-width: 1.2rem;
               }
-              @include button-secondary(8px 12px);
+              color: transparent;
+              text-shadow: 0 0 0 white;
+              @include button-primary(8px 12px);
             }
           }
         }
         .student {
-          background-color: #d8d8d8;
+          background-color: $white-smoke;
           margin-bottom: 14px;
-          padding-right: 12px;
 
           .basic-info-wrap {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
 
             a {
               padding: 12px 14px;
@@ -533,12 +535,23 @@ body {
             }
             .control-btns {
               display: flex;
+              height: 100%;
+              width: 60px;
+              position: absolute;
+              right: 0;
+              top: 0;
+
               button {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: $licorice !important;
-                @include button-secondary(8px 10px);
+                background-color: transparent;
+                border: none;
+                border-radius: 0px 12px 12px 0px;
+                cursor: pointer;
+                height: inherit;
+                width: 100%;
+                background-color: $licorice;
                 img {
                   height: auto;
                   max-width: 1.2rem;
@@ -560,7 +573,7 @@ body {
                     height: auto;
                     max-width: 1em;
                   }
-                  @include button-secondary(8px 10px);
+                  @include button-primary(8px 10px);
                 }
               }
             }
@@ -711,7 +724,7 @@ body {
           }
           button {
             width: 100%;
-            @include button-secondary(14px 12px);
+            @include button-primary(14px 12px);
           }
           &:last-child {
             button {
@@ -732,7 +745,7 @@ body {
 
       #student-info {
         width: 100%;
-        border-radius: 6px;
+        border-radius: 18px;
         background-color: white;
         padding: 12px 14px;
         margin-bottom: 12px;
@@ -744,7 +757,8 @@ body {
           @include OpenSans(200);
 
           button {
-            @include button-secondary(4px 12px);
+            font-size: 24px !important;
+            @include button-primary(4px 12px);
 
             img {
               width: 100%;
@@ -770,10 +784,10 @@ body {
             display: flex;
             justify-content: space-between;
             margin-top: 12px;
-            padding: 8px 12px;
+            padding: 10px 14px;
             color: white;
             background-color: $licorice;
-            border-radius: 4px;
+            border-radius: 12px;
             grid-column-start: 1;
             grid-column-end: 3;
           }
@@ -788,7 +802,7 @@ body {
       #marksheet {
         padding: 12px 14px;
         background-color: white;
-        border-radius: 6px;
+        border-radius: 18px;
 
         .marksheet-main-head {
           padding-left: 10px;
@@ -801,7 +815,7 @@ body {
             @include OpenSans(200);
           }
           button {
-            @include button-secondary(8px 16px);
+            @include button-primary(8px 16px);
           }
         }
         .empty-message {
@@ -828,7 +842,7 @@ body {
           }
           button {
             margin-top: 18px;
-            @include button-secondary(10px 14px);
+            @include button-primary(10px 14px);
           }
         }
         .set {
@@ -855,7 +869,7 @@ body {
                 justify-content: center;
                 margin-right: 12px;
                 background-color: $licorice !important;
-                @include button-secondary(4px 8px);
+                @include button-primary(4px 8px);
 
                 img {
                   width: 100%;
@@ -990,7 +1004,7 @@ body {
         width: 100%;
         background-color: white;
         padding: 12px 14px;
-        border-radius: 6px;
+        border-radius: 18px;
         height: auto;
       }
       h2 {
@@ -1038,13 +1052,13 @@ body {
 
         li {
           cursor: pointer;
-          border-bottom: 3px solid transparent;
           background-color: $white-smoke;
           padding: 12px 14px;
           margin-bottom: 12px;
-          border-radius: 4px 4px 0px 0px;
+          border-radius: 12px;
           @include OpenSans(200);
           color: $text-color-dark;
+          transition: background-color 0.2s ease-out 0s;
         }
       }
     }
@@ -1082,6 +1096,7 @@ body {
       display: none;
       align-items: center;
       width: 70%;
+      font-size: 12px;
 
       img {
         margin-right: 6px;
@@ -1099,6 +1114,9 @@ body {
         display: flex;
         position: relative;
 
+        .visib-ic:hover {
+          background-color: transparent;
+        }
         button {
           background-color: transparent;
           width: auto;
@@ -1111,6 +1129,9 @@ body {
 
           &:active {
             background-color: transparent;
+          }
+          &:focus {
+            outline: none;
           }
         }
       }
@@ -1133,7 +1154,7 @@ body {
         align-items: center;
         justify-content: center;
         width: 100%;
-        @include button-secondary(10px 6px);
+        @include button-primary(10px 6px);
 
         img {
           height: auto;
@@ -1312,8 +1333,8 @@ $breakpoint-mobile: 700px;
       grid-template-columns: 1fr;
     }
     .right {
-      top: 180px;
-      right: -160px;
+      top: 190px;
+      right: -170px;
       img {
         max-width: 24rem;
       }

@@ -274,9 +274,9 @@
       </h2>
       <ul>
         {% csrf_token %} {% for feeItem in feeInfo %} {% if feeItem.PAID %}
-        <li class="fee__month-item" style="border-bottom-color: #25d5a6" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
+        <li class="fee__month-item" style="background-color: #1ab48b; color: white;" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
         {% else %}
-        <li class="fee__month-item" style="border-bottom-color: #d52525" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
+        <li class="fee__month-item" style="background-color: #d52525; color: white;" data-state="{{feeItem.PAID}}" data-id="{{feeItem.ID}}" data-admno="{{student.admnNo}}">{{feeItem.MONTH_NAME}}</li>
         {% endif %} {% endfor %}
       </ul>
     </div>

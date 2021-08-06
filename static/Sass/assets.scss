@@ -1,13 +1,11 @@
 // Color Variables
-$licorice: #323232;
-$blue-gem: #fc6e20;
-$primary-shade-1a: #da5812;
-$secondary-shade-1: #f1f1f1;
-$white-smoke: #f3f3f3;
+$licorice: #101010;
+$blue-gem: #3456ff;
+$blue-gem-light: #4160ff;
+$blue-gem-dark: hsl(230, 75%, 51%);
+$white-smoke: #f8f8fa;
 $text-color-light: white;
 $text-color-dark: #333;
-$shamrock: #25d5a6;
-// Color Variables
 
 // Fonts
 @font-face {
@@ -35,16 +33,19 @@ $shamrock: #25d5a6;
 
 @mixin button-primary($padding) {
   padding: $padding;
-  background-color: white;
-  color: black;
-  @include OpenSans(100);
+  background-color: $blue-gem;
+  color: white;
+  @include OpenSans(200);
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1em;
 
+  &:hover {
+    background-color: $blue-gem-light;
+  }
   &:active {
-    background-color: $secondary-shade-1;
+    background-color: $blue-gem-dark;
   }
 }
 @mixin button-secondary($padding) {
@@ -69,41 +70,29 @@ $shamrock: #25d5a6;
   padding: $padding;
   background-color: transparent;
   color: white;
-  @include OpenSans(100);
+  @include OpenSans(200);
   border: 3px solid $blue-gem;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1em;
 
   &:focus {
     outline: none;
   }
+  &:hover {
+    background-color: $blue-gem-light;
+  }
   &:active {
-    background-color: #da5812da !important;
+    background-color: $blue-gem-dark;
   }
 }
 
-@mixin input-hollow($padding) {
-  padding: $padding;
-  background-color: white;
-  border: none;
-  color: black;
-  border-radius: 6px;
-  font-size: 1.2em;
-  transition: box-shadow 0.3s ease-out 0s;
-  @include OpenSans(200);
-
-  &:focus {
-    outline: none;
-    box-shadow: 0px 0px 0px 4px $primary-shade-1a;
-  }
-}
 @mixin input-dark() {
   padding: 14px 12px;
   width: 100%;
   background-color: transparent;
   border: 2.4px solid $blue-gem;
-  border-radius: 4px;
+  border-radius: 12px;
   color: #e6e6e6;
 
   &:focus {
