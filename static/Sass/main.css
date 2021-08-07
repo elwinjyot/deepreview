@@ -29,6 +29,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+button:focus {
+  outline: none;
+}
+
 .gender-grp {
   display: -webkit-box;
   display: -ms-flexbox;
