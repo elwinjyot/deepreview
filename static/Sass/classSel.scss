@@ -1,0 +1,45 @@
+@import "assets.scss";
+
+#selectClass-container {
+  display: grid;
+  width: 100%;
+  column-gap: 12px;
+  row-gap: 12px;
+  grid-template-columns: repeat(6, 1fr);
+
+  .class-card {
+    width: 100%;
+    padding: 4rem 1rem;
+    border-radius: 10px;
+    background-color: #242424;
+    overflow: hidden;
+    position: relative;
+
+    p {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      font-size: 46px;
+    }
+    h2 {
+      position: absolute;
+      right: 0px;
+      bottom: -25px;
+      font-size: 4.5rem;
+      @include OpenSans(300);
+      color: #444444;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  #selectClass-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  #selectClass-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

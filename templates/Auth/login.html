@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'Sass/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'Sass/login.css' %}" />
     <link rel="icon" href="{% static 'Images/favicon.png'%}" type="image/x-icon" />
     <title>Login</title>
   </head>
   <body id="login-body">
+    <section id="loader">
+      <h2>Loading</h2>
+      <div id="loader-wrapper"><span></span><span></span><span></span></div>
+    </section>
     <main id="loginMain">
       <form id="login-form">
         {% csrf_token %}
@@ -80,4 +85,5 @@
   <script type="text/javascript" src="{% static 'Scripts/JQuery.js' %}"></script>
   <script type="text/javascript" src="{% static 'Scripts/GSAP.js' %}"></script>
   <script type="text/javascript" src="{% static 'Scripts/App.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Scripts/login.js' %}"></script>
 </html>

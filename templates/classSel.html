@@ -4,6 +4,8 @@
     <a href="{% url 'Logout' %}"><button>Logout</button></a>
   </li>
 </ul>
+{% endblock %} {% block stylesheets %}
+<link rel="stylesheet" href="{% static 'Sass/classSel.css' %}" />
 {% endblock %} {% block main %}
 <section id="selectClass-container">
   {% for grade in grades %}

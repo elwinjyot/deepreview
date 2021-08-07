@@ -1,0 +1,230 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Light.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-SemiBold.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Bold.ttf);
+  font-weight: 300;
+}
+
+#login-body {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#login-body #login-form {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#login-body #login-form .space-fill-icon {
+  padding-bottom: 2rem;
+}
+
+#login-body #login-form .space-fill-icon img {
+  width: 100%;
+  max-width: 10rem;
+  height: auto;
+}
+
+#login-body #login-form .login-error-container {
+  color: #ec3a3a;
+  font-family: OpenSans;
+  font-weight: 200;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  font-size: 12px;
+}
+
+#login-body #login-form .login-error-container img {
+  margin-right: 6px;
+  width: 100%;
+  height: auto;
+  max-width: 18px;
+}
+
+#login-body #login-form .input-group {
+  width: 70%;
+  padding: 12px 0px;
+  position: relative;
+}
+
+#login-body #login-form .input-group .pass-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+#login-body #login-form .input-group .pass-group .visib-ic:hover {
+  background-color: transparent;
+}
+
+#login-body #login-form .input-group .pass-group button {
+  background-color: transparent;
+  width: auto;
+  padding: 4px;
+  position: absolute;
+  right: 12px;
+  top: 25%;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+#login-body #login-form .input-group .pass-group button:active {
+  background-color: transparent;
+}
+
+#login-body #login-form .input-group .pass-group button:focus {
+  outline: none;
+}
+
+#login-body #login-form .input-group label {
+  position: absolute;
+  padding: 0px 8px;
+  top: 6px;
+  left: 12px;
+  background-color: #101010;
+  color: white;
+  z-index: 9;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#login-body #login-form .input-group input {
+  margin-top: 6px;
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#login-body #login-form .input-group input:focus {
+  outline: none;
+}
+
+#login-body #login-form .input-group button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 10px 6px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#login-body #login-form .input-group button:hover {
+  background-color: #7f85d6;
+}
+
+#login-body #login-form .input-group button:active {
+  background-color: #545bb4;
+}
+
+#login-body #login-form .input-group button img {
+  height: auto;
+  max-width: 28px;
+}
+
+#login-body #login-form .craccbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#login-body #login-form .craccbtn a {
+  text-decoration: none;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#login-body #login-form .tip-wrap {
+  padding-top: 5rem;
+  text-align: center;
+}
+
+#login-body #login-form .tip-wrap p {
+  color: white;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#loginMain {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  #login-body #login-form {
+    width: 85%;
+  }
+  #login-body #login-form .input-group {
+    width: 100%;
+  }
+  #login-body #login-form .login-error-container {
+    width: 100%;
+  }
+}

@@ -22,5 +22,3 @@ class Tools:
 
         return {"total": total, "perc": percentage}
 
-    def setupMarksheetFromCSV(self, data):
-        pass

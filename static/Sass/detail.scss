@@ -1,0 +1,733 @@
+@import "./assets.scss";
+
+// Edit student form
+#editStudent-container {
+  position: fixed;
+  display: none;
+  z-index: 9;
+  justify-content: flex-end;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.602);
+  top: 0;
+  opacity: 0;
+  overflow-x: hidden;
+
+  #editStud-wrapper {
+    background-color: $licorice;
+    width: 30%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+    transform: translateX("100%");
+    overflow-y: scroll;
+    padding: 18px 0px;
+
+    .place-ic {
+      height: auto;
+      max-width: 62px;
+      margin: 2rem 0rem 1rem 0rem;
+    }
+    #editStudentForm {
+      padding-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+
+      .cta-sect {
+        margin-bottom: 0px;
+
+        .input-group {
+          button[type="button"] {
+            background-color: transparent;
+            border: 2.8px solid $blue-gem;
+          }
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            @include button-primary(12px 14px);
+
+            p {
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+      .sep {
+        margin-bottom: 24px;
+        width: 100%;
+
+        h2 {
+          margin-bottom: 6px;
+          color: white;
+          @include OpenSans(200);
+        }
+
+        .input-group {
+          width: 100%;
+          padding: 12px 0px;
+          position: relative;
+
+          label {
+            color: white;
+            @include OpenSans(200);
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            z-index: 9;
+            background-color: $licorice;
+            padding: 0px 12px;
+          }
+
+          input {
+            @include input-dark();
+
+            &::placeholder {
+              @include OpenSans(100);
+            }
+          }
+          textarea {
+            resize: none;
+            @include OpenSans(200);
+            @include input-dark();
+
+            &::placeholder {
+              @include OpenSans(100);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Create Marksheet Form
+#create-marksheet-container {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(51, 51, 51, 0.602);
+  display: none;
+  opacity: 0;
+  justify-content: flex-end;
+
+  #create-marksheet-wrapper {
+    transform: translateX(100%);
+    padding: 2rem 0rem;
+    width: 30%;
+    height: 100vh;
+    background-color: $licorice;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    overflow-y: scroll;
+
+    .emp-space-fill {
+      width: 100%;
+      height: auto;
+      max-width: 12rem;
+      margin-top: 1rem;
+    }
+    #create-marksheet {
+      width: 90%;
+
+      .format-holder {
+        padding: 2rem 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .emp-ic {
+          margin-bottom: 12px;
+          font-size: 45px;
+        }
+        .subjects {
+          width: 100%;
+
+          .subject-tab {
+            padding: 12px 0px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 70% 30%;
+            column-gap: 12px;
+
+            .input-group {
+              padding: 0px;
+              width: 100%;
+              .select-option-group {
+                width: 100%;
+              }
+            }
+            input {
+              width: 100%;
+              @include input-dark();
+
+              &::last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+        #addSubject-bar {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          p {
+            @include OpenSans(100);
+          }
+          button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50% !important;
+            @include button-hollow(0px);
+          }
+        }
+        h2 {
+          @include OpenSans(200);
+        }
+      }
+      .input-group {
+        padding: 12px 0px;
+        position: relative;
+
+        label {
+          position: absolute;
+          top: 0px;
+          left: 12px;
+          color: white;
+          background-color: $licorice;
+          padding: 0px 12px;
+          @include OpenSans(200);
+          z-index: 9;
+        }
+        button {
+          width: 100%;
+          @include button-primary(14px 12px);
+        }
+        &:last-child {
+          button {
+            @include button-hollow(14px 12px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Student Details Section
+#student-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  #student-wrapper {
+    width: 63%;
+
+    #student-info {
+      width: 100%;
+      border-radius: 18px;
+      background-color: white;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+
+      .studentDetailHeader {
+        color: $text-color-dark;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include OpenSans(200);
+
+        button {
+          font-size: 24px !important;
+          @include button-primary(0.4rem 0.8rem);
+
+          img {
+            width: 100%;
+            height: auto;
+            max-width: 1.3rem;
+          }
+        }
+      }
+      .all-details {
+        padding: 12px 0px 0px 0px;
+        @include OpenSans(100);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        #part-1 {
+          padding-right: 16px;
+        }
+        #part-2 {
+          border-left: 3px solid $text-color-dark;
+          padding-left: 16px;
+        }
+        #part-4 {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+          padding: 10px 14px;
+          color: white;
+          background-color: $licorice;
+          border-radius: 12px;
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+        #part-3 {
+          background-color: $licorice;
+          color: white;
+          border-radius: 12px;
+          padding: 0.8rem;
+          font-weight: 200;
+          margin-top: 12px;
+          grid-column-start: 1;
+          grid-column-end: 3;
+
+          p:first-child {
+            font-weight: 100;
+          }
+        }
+      }
+    }
+    #marksheet {
+      padding: 12px 14px;
+      background-color: white;
+      border-radius: 18px;
+
+      .marksheet-main-head {
+        padding-left: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        h2 {
+          color: $text-color-dark;
+          @include OpenSans(200);
+        }
+        button {
+          @include button-primary(8px 16px);
+        }
+      }
+      .empty-message {
+        padding: 2rem 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include OpenSans(300);
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 12rem;
+          transform: translateX(15%);
+        }
+        p {
+          font-size: 4rem;
+        }
+        h3 {
+          letter-spacing: 1px;
+          color: $text-color-dark;
+          margin-top: 18px;
+        }
+        button {
+          margin-top: 18px;
+          @include button-primary(10px 14px);
+        }
+      }
+      .set {
+        padding: 8px 10px;
+
+        h2 {
+          color: $text-color-dark;
+          @include OpenSans(200);
+        }
+        .set-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          h2 {
+            color: $text-color-dark;
+            @include OpenSans(200);
+          }
+          .controls {
+            display: flex;
+            align-items: center;
+
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 12px;
+              background-color: $licorice !important;
+              @include button-primary(0.4rem 0.6rem);
+
+              img {
+                width: 100%;
+                height: auto;
+                max-width: 1.3rem;
+              }
+            }
+            .toggle-container {
+              position: relative;
+              width: auto;
+              width: 3.8rem;
+              height: 2rem;
+              display: flex;
+              align-items: center;
+
+              input {
+                visibility: hidden;
+                width: 0;
+                height: 0;
+              }
+              label {
+                position: absolute;
+                left: 0;
+                width: 3.8rem;
+                height: 2rem;
+                background-color: $licorice;
+                border-radius: 8px;
+                padding: 0.3rem 0.35rem;
+                cursor: pointer;
+                transition: 0.3s;
+                display: flex;
+                align-items: center;
+
+                .toggle-globe {
+                  width: 1.5rem;
+                  height: 100%;
+                  border-radius: 6px;
+                  background-color: $white-smoke;
+                  transition: 0.3s;
+                  position: relative;
+                  transform: translateX(0%);
+                }
+              }
+              input:checked + label {
+                background-color: $blue-gem;
+
+                .toggle-globe {
+                  transform: translateX(100%);
+                }
+              }
+            }
+            // .toggle-container {
+            //   background-color: rgb(240, 240, 240);
+            //   width: 60px;
+            //   height: 30px;
+            //   border-radius: 30px 30px;
+
+            //   .toggle-wrapper {
+            //     width: 100%;
+            //     height: inherit;
+            //     display: flex;
+            //     align-items: center;
+            //     padding: 0px 3px;
+            //     cursor: pointer;
+            //     border-radius: 30px 30px;
+            //     transition: justify-content 0.2s ease-out 0s;
+
+            //     .toggle-globe {
+            //       height: 25px;
+            //       width: 25px;
+            //       border-radius: 50%;
+            //       background-color: $licorice;
+            //     }
+            //   }
+            // }
+          }
+        }
+        .not-released {
+          color: #242424a6;
+        }
+        .mt {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .ut {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .result-container {
+          padding: 12px 0px;
+
+          .result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background-color: $licorice;
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            @include OpenSans(100);
+
+            span {
+              @include OpenSans(300);
+            }
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          }
+        }
+        .subject-mark-wrapper {
+          padding: 12px 0px;
+          display: grid;
+          column-gap: 12px;
+          row-gap: 12px;
+
+          .subject-mark-display {
+            display: flex;
+            padding: 3.4rem 0rem 1rem 0rem;
+            background-color: $white-smoke;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 12px;
+            position: relative;
+
+            .internal-mark-display {
+              width: 100%;
+
+              .mark-set {
+                padding: 0px 12px;
+
+                .mark-set__wrapper {
+                  padding: 4px 0px;
+                  display: flex;
+                  justify-content: space-between;
+
+                  p {
+                    margin-bottom: 0px;
+                  }
+                }
+              }
+            }
+            p {
+              margin-bottom: 12px;
+              @include OpenSans(100);
+            }
+            .sub-heading {
+              border-radius: 12px 12px 0px 0px;
+              width: 100%;
+              background-color: $licorice;
+              position: absolute;
+              top: 0;
+              color: white;
+              display: flex;
+              justify-content: center;
+              font-size: 18px;
+              padding: 6px 0px;
+            }
+            span {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: $licorice;
+              @include OpenSans(200);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  #fee-info {
+    width: 35%;
+
+    .fee-info-wrapper {
+      width: 100%;
+      background-color: white;
+      padding: 12px 14px;
+      border-radius: 18px;
+      height: auto;
+    }
+    h2 {
+      display: flex;
+      justify-content: space-between;
+      @include OpenSans(200);
+      color: $text-color-dark;
+
+      .indicator {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          span {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+          }
+          p {
+            margin-left: 4px;
+            @include OpenSans(100);
+            font-size: 15px;
+          }
+        }
+        .paid {
+          span {
+            background-color: #25d5a6;
+          }
+        }
+        .unpaid {
+          span {
+            background-color: #d52525;
+          }
+        }
+      }
+    }
+    ul {
+      padding: 12px 0px 0px 0px;
+      list-style-type: none;
+
+      li {
+        cursor: pointer;
+        background-color: $white-smoke;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        @include OpenSans(200);
+        color: $text-color-dark;
+        transition: background-color 0.2s ease-out 0s;
+      }
+    }
+  }
+}
+
+// Media Query
+@media (max-width: $breakpoint-mobile) {
+  #editStudent-container {
+    #editStud-wrapper {
+      width: 100%;
+
+      #editStudentForm {
+        width: 90%;
+      }
+    }
+  }
+
+  #create-marksheet-container {
+    #create-marksheet-wrapper {
+      width: 100%;
+
+      #create-marksheet {
+        width: 90%;
+      }
+    }
+  }
+
+  #student-details-container {
+    #student-wrapper {
+      #student-info {
+        .all-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // grid-template-columns: 1fr;
+          #part-1 {
+            padding: 0px;
+          }
+          #part-2 {
+            border: none;
+            padding: 0px;
+          }
+          #part-3 {
+            width: 100%;
+          }
+          #part-4 {
+            width: 100%;
+          }
+        }
+      }
+      #marksheet {
+        .marksheet-main-head {
+          h2 {
+            font-size: 20px;
+          }
+        }
+        .set {
+          .ut {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .mt {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    }
+    #fee-info {
+      max-height: 200vh;
+
+      .fee-info-wrapper {
+        h2 {
+          .indicator {
+            width: 40% !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  #addStudent-container {
+    #addStud-wrapper {
+      width: 100%;
+
+      #addStudentForm {
+        width: 70%;
+      }
+    }
+  }
+  #create-marksheet-container {
+    #create-marksheet-wrapper {
+      width: 100%;
+
+      #create-marksheet {
+        width: 90%;
+      }
+    }
+  }
+  #selectClass-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #student-details-container {
+    flex-direction: column;
+
+    #student-wrapper {
+      width: 100%;
+      margin-bottom: 18px;
+
+      #marksheet {
+        .set {
+          .mt {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      }
+    }
+    #fee-info {
+      width: 100%;
+      // height: 80vh;
+    }
+  }
+}

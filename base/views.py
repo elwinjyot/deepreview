@@ -112,6 +112,7 @@ def addStudent(request, gradeId):
 def toggleRelease(request):
     if request.is_ajax and request.method == 'POST':
         state = json.loads(request.POST["state"])
+        print(state)
         index = request.POST["index"]
         admnNo = request.POST["admnNo"]
         student = Student.objects.get(admnNo=admnNo)

@@ -1,0 +1,1105 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Light.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-SemiBold.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Bold.ttf);
+  font-weight: 300;
+}
+
+#editStudent-container {
+  position: fixed;
+  display: none;
+  z-index: 9;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.602);
+  top: 0;
+  opacity: 0;
+  overflow-x: hidden;
+}
+
+#editStudent-container #editStud-wrapper {
+  background-color: #101010;
+  width: 30%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 4rem;
+  -webkit-transform: translateX("100%");
+          transform: translateX("100%");
+  overflow-y: scroll;
+  padding: 18px 0px;
+}
+
+#editStudent-container #editStud-wrapper .place-ic {
+  height: auto;
+  max-width: 62px;
+  margin: 2rem 0rem 1rem 0rem;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm {
+  padding-top: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect {
+  margin-bottom: 0px;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect .input-group button[type="button"] {
+  background-color: transparent;
+  border: 2.8px solid #6c72cb;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect .input-group button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect .input-group button:hover {
+  background-color: #7f85d6;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect .input-group button:active {
+  background-color: #545bb4;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .cta-sect .input-group button p {
+  margin-left: 6px;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep h2 {
+  margin-bottom: 6px;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group {
+  width: 100%;
+  padding: 12px 0px;
+  position: relative;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group label {
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  z-index: 9;
+  background-color: #101010;
+  padding: 0px 12px;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input {
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input:focus {
+  outline: none;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group input::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea {
+  resize: none;
+  font-family: OpenSans;
+  font-weight: 200;
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea:focus {
+  outline: none;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#editStudent-container #editStud-wrapper #editStudentForm .sep .input-group textarea::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#create-marksheet-container {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(51, 51, 51, 0.602);
+  display: none;
+  opacity: 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#create-marksheet-container #create-marksheet-wrapper {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  padding: 2rem 0rem;
+  width: 30%;
+  height: 100vh;
+  background-color: #101010;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: white;
+  overflow-y: scroll;
+}
+
+#create-marksheet-container #create-marksheet-wrapper .emp-space-fill {
+  width: 100%;
+  height: auto;
+  max-width: 12rem;
+  margin-top: 1rem;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet {
+  width: 90%;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder {
+  padding: 2rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .emp-ic {
+  margin-bottom: 12px;
+  font-size: 45px;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects {
+  width: 100%;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab {
+  padding: 12px 0px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 30%;
+      grid-template-columns: 70% 30%;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab .input-group {
+  padding: 0px;
+  width: 100%;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab .input-group .select-option-group {
+  width: 100%;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input {
+  width: 100%;
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input:focus {
+  outline: none;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder .subjects .subject-tab input::last-child {
+  text-align: right;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar p {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  padding: 0px;
+  background-color: transparent;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: 3px solid #6c72cb;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar button:focus {
+  outline: none;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar button:hover {
+  background-color: #7f85d6;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder #addSubject-bar button:active {
+  background-color: #545bb4;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .format-holder h2 {
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group {
+  padding: 12px 0px;
+  position: relative;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group label {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  color: white;
+  background-color: #101010;
+  padding: 0px 12px;
+  font-family: OpenSans;
+  font-weight: 200;
+  z-index: 9;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group button {
+  width: 100%;
+  padding: 14px 12px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group button:hover {
+  background-color: #7f85d6;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group button:active {
+  background-color: #545bb4;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group:last-child button {
+  padding: 14px 12px;
+  background-color: transparent;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: 3px solid #6c72cb;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group:last-child button:focus {
+  outline: none;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group:last-child button:hover {
+  background-color: #7f85d6;
+}
+
+#create-marksheet-container #create-marksheet-wrapper #create-marksheet .input-group:last-child button:active {
+  background-color: #545bb4;
+}
+
+#student-details-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#student-details-container #student-wrapper {
+  width: 63%;
+}
+
+#student-details-container #student-wrapper #student-info {
+  width: 100%;
+  border-radius: 18px;
+  background-color: white;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+#student-details-container #student-wrapper #student-info .studentDetailHeader {
+  color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#student-details-container #student-wrapper #student-info .studentDetailHeader button {
+  font-size: 24px !important;
+  padding: 0.4rem 0.8rem;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#student-details-container #student-wrapper #student-info .studentDetailHeader button:hover {
+  background-color: #7f85d6;
+}
+
+#student-details-container #student-wrapper #student-info .studentDetailHeader button:active {
+  background-color: #545bb4;
+}
+
+#student-details-container #student-wrapper #student-info .studentDetailHeader button img {
+  width: 100%;
+  height: auto;
+  max-width: 1.3rem;
+}
+
+#student-details-container #student-wrapper #student-info .all-details {
+  padding: 12px 0px 0px 0px;
+  font-family: OpenSans;
+  font-weight: 100;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#student-details-container #student-wrapper #student-info .all-details #part-1 {
+  padding-right: 16px;
+}
+
+#student-details-container #student-wrapper #student-info .all-details #part-2 {
+  border-left: 3px solid #333;
+  padding-left: 16px;
+}
+
+#student-details-container #student-wrapper #student-info .all-details #part-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 12px;
+  padding: 10px 14px;
+  color: white;
+  background-color: #101010;
+  border-radius: 12px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#student-details-container #student-wrapper #student-info .all-details #part-3 {
+  background-color: #101010;
+  color: white;
+  border-radius: 12px;
+  padding: 0.8rem;
+  font-weight: 200;
+  margin-top: 12px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#student-details-container #student-wrapper #student-info .all-details #part-3 p:first-child {
+  font-weight: 100;
+}
+
+#student-details-container #student-wrapper #marksheet {
+  padding: 12px 14px;
+  background-color: white;
+  border-radius: 18px;
+}
+
+#student-details-container #student-wrapper #marksheet .marksheet-main-head {
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 12px;
+}
+
+#student-details-container #student-wrapper #marksheet .marksheet-main-head h2 {
+  color: #333;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#student-details-container #student-wrapper #marksheet .marksheet-main-head button {
+  padding: 8px 16px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#student-details-container #student-wrapper #marksheet .marksheet-main-head button:hover {
+  background-color: #7f85d6;
+}
+
+#student-details-container #student-wrapper #marksheet .marksheet-main-head button:active {
+  background-color: #545bb4;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message {
+  padding: 2rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: OpenSans;
+  font-weight: 300;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message img {
+  width: 100%;
+  height: auto;
+  max-width: 12rem;
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message p {
+  font-size: 4rem;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message h3 {
+  letter-spacing: 1px;
+  color: #333;
+  margin-top: 18px;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message button {
+  margin-top: 18px;
+  padding: 10px 14px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message button:hover {
+  background-color: #7f85d6;
+}
+
+#student-details-container #student-wrapper #marksheet .empty-message button:active {
+  background-color: #545bb4;
+}
+
+#student-details-container #student-wrapper #marksheet .set {
+  padding: 8px 10px;
+}
+
+#student-details-container #student-wrapper #marksheet .set h2 {
+  color: #333;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head h2 {
+  color: #333;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 12px;
+  background-color: #101010 !important;
+  padding: 0.4rem 0.6rem;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls button:hover {
+  background-color: #7f85d6;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls button:active {
+  background-color: #545bb4;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls button img {
+  width: 100%;
+  height: auto;
+  max-width: 1.3rem;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container {
+  position: relative;
+  width: auto;
+  width: 3.8rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container label {
+  position: absolute;
+  left: 0;
+  width: 3.8rem;
+  height: 2rem;
+  background-color: #101010;
+  border-radius: 8px;
+  padding: 0.3rem 0.35rem;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container label .toggle-globe {
+  width: 1.5rem;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #f8f8fa;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container input:checked + label {
+  background-color: #6c72cb;
+}
+
+#student-details-container #student-wrapper #marksheet .set .set-head .controls .toggle-container input:checked + label .toggle-globe {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+#student-details-container #student-wrapper #marksheet .set .not-released {
+  color: #242424a6;
+}
+
+#student-details-container #student-wrapper #marksheet .set .mt {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+#student-details-container #student-wrapper #marksheet .set .ut {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+#student-details-container #student-wrapper #marksheet .set .result-container {
+  padding: 12px 0px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .result-container .result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 12px;
+  background-color: #101010;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#student-details-container #student-wrapper #marksheet .set .result-container .result span {
+  font-family: OpenSans;
+  font-weight: 300;
+}
+
+#student-details-container #student-wrapper #marksheet .set .result-container .result:last-child {
+  margin-bottom: 0px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper {
+  padding: 12px 0px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
+  row-gap: 12px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3.4rem 0rem 1rem 0rem;
+  background-color: #f8f8fa;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 12px;
+  position: relative;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display .internal-mark-display {
+  width: 100%;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display .internal-mark-display .mark-set {
+  padding: 0px 12px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display .internal-mark-display .mark-set .mark-set__wrapper {
+  padding: 4px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display .internal-mark-display .mark-set .mark-set__wrapper p {
+  margin-bottom: 0px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display p {
+  margin-bottom: 12px;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display .sub-heading {
+  border-radius: 12px 12px 0px 0px;
+  width: 100%;
+  background-color: #101010;
+  position: absolute;
+  top: 0;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 18px;
+  padding: 6px 0px;
+}
+
+#student-details-container #student-wrapper #marksheet .set .subject-mark-wrapper .subject-mark-display span {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #101010;
+  font-family: OpenSans;
+  font-weight: 200;
+  color: white;
+}
+
+#student-details-container #fee-info {
+  width: 35%;
+}
+
+#student-details-container #fee-info .fee-info-wrapper {
+  width: 100%;
+  background-color: white;
+  padding: 12px 14px;
+  border-radius: 18px;
+  height: auto;
+}
+
+#student-details-container #fee-info h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: OpenSans;
+  font-weight: 200;
+  color: #333;
+}
+
+#student-details-container #fee-info h2 .indicator {
+  width: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#student-details-container #fee-info h2 .indicator div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#student-details-container #fee-info h2 .indicator div span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+#student-details-container #fee-info h2 .indicator div p {
+  margin-left: 4px;
+  font-family: OpenSans;
+  font-weight: 100;
+  font-size: 15px;
+}
+
+#student-details-container #fee-info h2 .indicator .paid span {
+  background-color: #25d5a6;
+}
+
+#student-details-container #fee-info h2 .indicator .unpaid span {
+  background-color: #d52525;
+}
+
+#student-details-container #fee-info ul {
+  padding: 12px 0px 0px 0px;
+  list-style-type: none;
+}
+
+#student-details-container #fee-info ul li {
+  cursor: pointer;
+  background-color: #f8f8fa;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-family: OpenSans;
+  font-weight: 200;
+  color: #333;
+  -webkit-transition: background-color 0.2s ease-out 0s;
+  transition: background-color 0.2s ease-out 0s;
+}
+
+@media (max-width: 700px) {
+  #editStudent-container #editStud-wrapper {
+    width: 100%;
+  }
+  #editStudent-container #editStud-wrapper #editStudentForm {
+    width: 90%;
+  }
+  #create-marksheet-container #create-marksheet-wrapper {
+    width: 100%;
+  }
+  #create-marksheet-container #create-marksheet-wrapper #create-marksheet {
+    width: 90%;
+  }
+  #student-details-container #student-wrapper #student-info .all-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #student-details-container #student-wrapper #student-info .all-details #part-1 {
+    padding: 0px;
+  }
+  #student-details-container #student-wrapper #student-info .all-details #part-2 {
+    border: none;
+    padding: 0px;
+  }
+  #student-details-container #student-wrapper #student-info .all-details #part-3 {
+    width: 100%;
+  }
+  #student-details-container #student-wrapper #student-info .all-details #part-4 {
+    width: 100%;
+  }
+  #student-details-container #student-wrapper #marksheet .marksheet-main-head h2 {
+    font-size: 20px;
+  }
+  #student-details-container #student-wrapper #marksheet .set .ut {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  #student-details-container #student-wrapper #marksheet .set .mt {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  #student-details-container #fee-info {
+    max-height: 200vh;
+  }
+  #student-details-container #fee-info .fee-info-wrapper h2 .indicator {
+    width: 40% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #addStudent-container #addStud-wrapper {
+    width: 100%;
+  }
+  #addStudent-container #addStud-wrapper #addStudentForm {
+    width: 70%;
+  }
+  #create-marksheet-container #create-marksheet-wrapper {
+    width: 100%;
+  }
+  #create-marksheet-container #create-marksheet-wrapper #create-marksheet {
+    width: 90%;
+  }
+  #selectClass-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  #student-details-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #student-details-container #student-wrapper {
+    width: 100%;
+    margin-bottom: 18px;
+  }
+  #student-details-container #student-wrapper #marksheet .set .mt {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  #student-details-container #fee-info {
+    width: 100%;
+  }
+}

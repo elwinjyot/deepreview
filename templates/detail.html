@@ -12,9 +12,13 @@
 </ul>
 {% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'Sass/detail.css' %}">
+{% endblock %}
+
 {% block main %}
-<section id="addStudent-container">
-  <div id="addStud-wrapper">
+<section id="editStudent-container">
+  <div id="editStud-wrapper">
     <form id="editStudentForm" data-gradeId="{{grade}}">
       {% csrf_token %}
       <section class="sep">
@@ -88,7 +92,7 @@
           <button type="submit" id="save-student-btn" data-admnNo="{{student.admnNo}}">Save Student<p>&#128190;</p></button>
         </div>
         <div class="input-group cancel-grp">
-          <button type="button" id="close-addStudent-panel-btn">Cancel</button>
+          <button type="button" id="close-editStudent-panel-btn">Cancel</button>
         </div>
       </section>
     </form>
@@ -189,14 +193,23 @@
           <div class="controls">
             <button class="delete-marksheet" data-index="{{set.INDEX}}" data-admnNo="{{student.admnNo}}"><p>&#128465;</p></button>
             <div class="toggle-container">
+              {% if  set.RELEASED %}
+              <input type="checkbox"  checked id="rel-toggle{{set.INDEX}}" />
+              <label class="rel-toggle-cta" for="rel-toggle{{set.INDEX}}" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}"><span class="toggle-globe"></span></label>
+              {% else %}
+              <input type="checkbox"  id="rel-toggle{{set.INDEX}}" />
+              <label class="rel-toggle-cta" for="rel-toggle{{set.INDEX}}" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}"><span class="toggle-globe"></span></label>
+              {% endif %}
+            </div>
+            <!-- <div class="toggle-container">
               {% if set.RELEASED %}
-              <div class="toggle-wrapper active-toggle" data-state="on" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
+              <div class="toggle-wrapper active-toggle" data-state="on" >
               {% else %}
               <div class="toggle-wrapper toggle-wrap{{set.INDEX}}" data-state="off" data-admnNo="{{student.admnNo}}" data-grade="{{class}}" data-index="{{set.INDEX}}">
               {% endif %}
                 <div class="toggle-globe toggle{{set.INDEX}}"></div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="subject-mark-wrapper ut">
@@ -293,6 +306,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'Scripts/detail.js' %}"></script>
 <script src="{% static 'Scripts/Marksheet/MarksheetCr.js' %}"></script>
 {% endblock %}
 

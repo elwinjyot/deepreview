@@ -1,0 +1,68 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Light.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-SemiBold.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Bold.ttf);
+  font-weight: 300;
+}
+
+#selectClass-container {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
+  row-gap: 12px;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+}
+
+#selectClass-container .class-card {
+  width: 100%;
+  padding: 4rem 1rem;
+  border-radius: 10px;
+  background-color: #242424;
+  overflow: hidden;
+  position: relative;
+}
+
+#selectClass-container .class-card p {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 46px;
+}
+
+#selectClass-container .class-card h2 {
+  position: absolute;
+  right: 0px;
+  bottom: -25px;
+  font-size: 4.5rem;
+  font-family: OpenSans;
+  font-weight: 300;
+  color: #444444;
+}
+
+@media (max-width: 700px) {
+  #selectClass-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  #selectClass-container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}

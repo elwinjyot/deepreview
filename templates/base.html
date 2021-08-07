@@ -5,11 +5,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block stylesheets %} {% endblock %}
     <link rel="stylesheet" href="{% static 'Sass/main.css' %}" />
     <link rel="icon" href="{% static 'Images/favicon.png'%}" type="image/x-icon" />
     <title>DeepReview</title>
   </head>
   <body>
+    <section id="loader">
+      <h2>Loading</h2>
+      <div id="loader-wrapper"><span></span><span></span><span></span></div>
+    </section>
     <div id="notification-container">
       <img src="{% static 'Images/noti-ic.png' %}" alt="" />
       <div class="noti-wrapper">

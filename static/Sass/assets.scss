@@ -1,11 +1,14 @@
 // Color Variables
 $licorice: #101010;
-$blue-gem: #3456ff;
-$blue-gem-light: #4160ff;
-$blue-gem-dark: hsl(230, 75%, 51%);
+$blue-gem: #6c72cb;
+$blue-gem-light: #7f85d6;
+$blue-gem-dark: #545bb4;
 $white-smoke: #f8f8fa;
 $text-color-light: white;
 $text-color-dark: #333;
+
+$breakpoint-tablet: 900px;
+$breakpoint-mobile: 700px;
 
 // Fonts
 @font-face {

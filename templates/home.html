@@ -4,6 +4,8 @@
     <a href="{% url 'Logout' %}"><button>Logout</button></a>
   </li>
 </ul>
+{% endblock %} {% block stylesheets %}
+<link rel="stylesheet" href="{% static 'Sass/home.css' %}" />
 {% endblock %} {% block main %}
 <section id="confirmation-box">
   <p>Are you sure you want to delete the student!</p>
@@ -125,4 +127,6 @@
       .trim();
   });
 </script>
+{% endblock %} {% block scripts %}
+<script src="{% static 'Scripts/home.js' %}"></script>
 {% endblock %}

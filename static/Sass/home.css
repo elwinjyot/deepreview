@@ -1,0 +1,665 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Light.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-SemiBold.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../Fonts/OpenSans-Bold.ttf);
+  font-weight: 300;
+}
+
+#confirmation-box {
+  position: fixed;
+  z-index: 100;
+  bottom: -40%;
+  padding: 2rem 3rem;
+  background-color: #101010;
+  -webkit-box-shadow: 0px 0px 27px -10px rgba(21, 21, 21, 0.6);
+          box-shadow: 0px 0px 27px -10px rgba(21, 21, 21, 0.6);
+  color: white;
+  border-radius: 12px;
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#confirmation-box p {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+#confirmation-box .btns {
+  padding-top: 12px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+#confirmation-box .btns button {
+  background-color: #d52525 !important;
+  padding: 12px 0px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#confirmation-box .btns button:hover {
+  background-color: #7f85d6;
+}
+
+#confirmation-box .btns button:active {
+  background-color: #545bb4;
+}
+
+#confirmation-box .btns button:first-child {
+  background-color: transparent !important;
+  border-color: #d52525 !important;
+  padding: 12px 0px;
+  background-color: transparent;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: 3px solid #6c72cb;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#confirmation-box .btns button:first-child:focus {
+  outline: none;
+}
+
+#confirmation-box .btns button:first-child:hover {
+  background-color: #7f85d6;
+}
+
+#confirmation-box .btns button:first-child:active {
+  background-color: #545bb4;
+}
+
+#confirmation-box .btns button:first-child:active {
+  background-color: #df3131 !important;
+}
+
+#confirmation-box .btns button:active {
+  background-color: #df3131 !important;
+}
+
+#addStudent-container {
+  position: fixed;
+  display: none;
+  z-index: 9;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.602);
+  top: 0;
+  opacity: 0;
+  overflow-x: hidden;
+}
+
+#addStudent-container #addStud-wrapper {
+  background-color: #101010;
+  width: 30%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 4rem;
+  -webkit-transform: translateX("100%");
+          transform: translateX("100%");
+  overflow-y: scroll;
+  padding: 18px 0px;
+}
+
+#addStudent-container #addStud-wrapper .place-ic {
+  height: auto;
+  max-width: 62px;
+  margin: 2rem 0rem 1rem 0rem;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm {
+  padding-top: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect {
+  margin-bottom: 0px;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button[type="button"] {
+  background-color: transparent;
+  border: 2.8px solid #6c72cb;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button:hover {
+  background-color: #7f85d6;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button:active {
+  background-color: #545bb4;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .cta-sect .input-group button p {
+  margin-left: 6px;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep h2 {
+  margin-bottom: 6px;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group {
+  width: 100%;
+  padding: 12px 0px;
+  position: relative;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group label {
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  z-index: 9;
+  background-color: #101010;
+  padding: 0px 12px;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input {
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input:focus {
+  outline: none;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group input::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea {
+  resize: none;
+  font-family: OpenSans;
+  font-weight: 200;
+  padding: 14px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 2.4px solid #6c72cb;
+  border-radius: 12px;
+  color: #e6e6e6;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea:focus {
+  outline: none;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::-webkit-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea:-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::-ms-input-placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#addStudent-container #addStud-wrapper #addStudentForm .sep .input-group textarea::placeholder {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#class-details {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #333;
+}
+
+#class-details div {
+  border-radius: 18px;
+}
+
+#class-details .class-teacher-details {
+  width: 35%;
+  height: auto;
+}
+
+#class-details .class-teacher-details .teacher-details {
+  height: auto;
+  background-color: white;
+  padding: 12px 20px;
+}
+
+#class-details .class-teacher-details h2 {
+  font-size: 2em;
+  font-family: OpenSans;
+  font-weight: 300;
+}
+
+#class-details .class-teacher-details p {
+  font-family: OpenSans;
+  font-weight: 100;
+}
+
+#class-details .class-teacher-details .fee-status {
+  margin-top: 12px;
+}
+
+#class-details .class-teacher-details .fee-status span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#class-details .class-teacher-details .fee-status .state-bar-wrapper {
+  overflow: hidden;
+  height: 10px;
+  width: 100%;
+  background-color: #d8d8d8;
+  margin-top: 12px;
+}
+
+#class-details .class-teacher-details .fee-status .state-bar-wrapper .state-bar {
+  width: 70%;
+  height: inherit;
+  background-color: #1ab48b;
+}
+
+#class-details .students-list {
+  width: 64%;
+  background-color: white;
+  padding: 12px 14px;
+}
+
+#class-details .students-list #empty-msg {
+  font-family: OpenSans;
+  font-weight: 200;
+  color: #242424a2;
+}
+
+#class-details .students-list .head-stock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 18px;
+}
+
+#class-details .students-list .head-stock h2 {
+  font-family: OpenSans;
+  font-weight: 300;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm {
+  margin-right: 6px;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm input {
+  opacity: 0;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  cursor: pointer;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm label {
+  pointer-events: none;
+  display: block;
+  position: relative;
+  background: #6c72cb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel #marksheet-upload-confirm label img {
+  height: auto;
+  max-width: 1.2rem;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 8px;
+  color: transparent;
+  text-shadow: 0 0 0 white;
+  padding: 8px 12px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel button:last-child {
+  margin: 0;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel button img {
+  height: auto;
+  max-width: 1.2rem;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel button:hover {
+  background-color: #7f85d6;
+}
+
+#class-details .students-list .head-stock .student-list-control-panel button:active {
+  background-color: #545bb4;
+}
+
+#class-details .students-list .student {
+  background-color: #f8f8fa;
+  margin-bottom: 14px;
+}
+
+#class-details .students-list .student .basic-info-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#class-details .students-list .student .basic-info-wrap a {
+  padding: 12px 14px;
+  text-decoration: none;
+  color: #333;
+  width: 100%;
+  height: inherit;
+}
+
+#class-details .students-list .student .basic-info-wrap a h2 {
+  font-family: OpenSans;
+  font-weight: 200;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px 12px 12px 0px;
+  cursor: pointer;
+  height: inherit;
+  width: 100%;
+  background-color: #101010;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns button img {
+  height: auto;
+  max-width: 1.2rem;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a {
+  text-decoration: none;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a button {
+  margin-right: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 8px 10px;
+  background-color: #6c72cb;
+  color: white;
+  font-family: OpenSans;
+  font-weight: 200;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a button .open-det {
+  -webkit-transition: -webkit-transform 0.2s ease-out 0s;
+  transition: -webkit-transform 0.2s ease-out 0s;
+  transition: transform 0.2s ease-out 0s;
+  transition: transform 0.2s ease-out 0s, -webkit-transform 0.2s ease-out 0s;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a button img {
+  height: auto;
+  max-width: 1em;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a button:hover {
+  background-color: #7f85d6;
+}
+
+#class-details .students-list .student .basic-info-wrap .control-btns a button:active {
+  background-color: #545bb4;
+}
+
+#class-details .students-list .student:last-child {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 700px) {
+  #confirmation-box {
+    bottom: -40%;
+    padding: 2rem 1rem 1rem 2rem;
+    text-align: center;
+  }
+  #confirmation-box .btns {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #confirmation-box .btns .delete-confirm {
+    margin-bottom: 12px !important;
+  }
+  #confirmation-box .btns button {
+    width: 100%;
+  }
+  #addStudent-container #addStud-wrapper {
+    width: 100%;
+  }
+  #addStudent-container #addStud-wrapper #addStudentForm {
+    width: 90% !important;
+  }
+}
+
+@media (max-height: 632px) {
+  #confirmation-box {
+    bottom: -100%;
+  }
+}
+
+@media (max-width: 900px) {
+  #addStudent-container #addStud-wrapper {
+    width: 100%;
+  }
+  #addStudent-container #addStud-wrapper #addStudentForm {
+    width: 70%;
+  }
+  #class-details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  #class-details .students-list {
+    width: 100%;
+  }
+  #class-details .students-list .head-stock h2 {
+    font-size: 20px;
+  }
+  #class-details .students-list .student .basic-info-wrap {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #class-details .students-list .student .basic-info-wrap h2 {
+    font-size: 18px;
+  }
+  #class-details .class-teacher-details {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
